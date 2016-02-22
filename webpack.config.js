@@ -32,7 +32,7 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(process.env || 'dev')
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'dev')
       }
     })
   ]
