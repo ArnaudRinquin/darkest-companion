@@ -1,0 +1,9 @@
+body {
+  background: #424242;
+  color: #C7C7C7;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#logo {
+  max-width: 300px;
+}

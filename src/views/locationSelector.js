@@ -16,6 +16,7 @@ function createOptions(Radio) {
 
 export function LocationSelector({selectedLocation, selectLocation}) {
   return <section className="location-selector">
+    <h1>Location</h1>
     <RadioGroup name="location" selectedValue={selectedLocation} onChange={selectLocation}>
       {createOptions}
     </RadioGroup>

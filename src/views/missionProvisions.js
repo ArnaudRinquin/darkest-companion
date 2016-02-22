@@ -7,6 +7,7 @@ export function LevelProvisions({selectedLocation, selectedLength}) {
   const provisions = getMissionProvisions(selectedLocation, selectedLength);
 
   return <section className="level-provisions">
+    <h1>Provisions</h1>
     <div>{provisions.food} Food</div>
     <div>{provisions.shovels} Shovels</div>
     <div>{provisions.antivenoms} Antivenoms</div>
