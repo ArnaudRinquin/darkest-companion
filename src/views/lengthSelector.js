@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import RadioGroup from 'react-radio-group';
 import { connect } from 'react-redux';
+import Capitalize from '../components/capitalize';
 import { LENGTHS, selectLength, getSelectedLength  } from '../ducks/mission';
 
 function createOptions(Radio) {
   const options = LENGTHS.map((length) => {
     return <span key={`length-option-${length}`}>
         <Radio id={length} value={length}/>
-        <label htmlFor={length}>{length}</label>
+        <label htmlFor={length}>
+          <Capitalize text={length}/>
+        </label>
       </span>
   });
 

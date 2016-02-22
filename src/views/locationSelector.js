@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import RadioGroup from 'react-radio-group';
 import { connect } from 'react-redux';
+import Capitalize from '../components/capitalize';
 import { LOCATIONS, selectLocation, getSelectedLocation  } from '../ducks/mission';
 
 function createOptions(Radio) {
   const options = LOCATIONS.map((location) => {
     return <span key={`location-option-${location}`}>
         <Radio id={location} value={location}/>
-        <label htmlFor={location}>{location}</label>
+        <label htmlFor={location}>
+          <Capitalize text={location}/>
+        </label>
       </span>
   });
 

@@ -8,14 +8,14 @@ export function MissionProvisions({selectedLocation, selectedLength}) {
 
   return <section className="level-provisions">
     <h1 className='centered'>Provisions</h1>
-    <div>{provisions.food} Food</div>
-    <div>{provisions.shovels} Shovels</div>
-    <div>{provisions.antivenoms} Antivenoms</div>
-    <div>{provisions.bandages} Bandages</div>
-    <div>{provisions.herbs} Medicinal Herbs</div>
-    <div>{provisions.keys} Skeleton Keys</div>
-    <div>{provisions.holyWaters} Holy Waters</div>
-    <div>{provisions.torches} Torches</div>
+    <div><span className='provision-amount'>{provisions.food}</span> Food</div>
+    <div><span className='provision-amount'>{provisions.shovels}</span> Shovels</div>
+    <div><span className='provision-amount'>{provisions.antivenoms}</span> Antivenoms</div>
+    <div><span className='provision-amount'>{provisions.bandages}</span> Bandages</div>
+    <div><span className='provision-amount'>{provisions.herbs}</span> Medicinal Herbs</div>
+    <div><span className='provision-amount'>{provisions.keys}</span> Skeleton Keys</div>
+    <div><span className='provision-amount'>{provisions.holyWaters}</span> Holy Waters</div>
+    <div><span className='provision-amount'>{provisions.torches}</span> Torches</div>
   </section>
 }
 

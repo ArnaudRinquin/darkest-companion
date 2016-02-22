@@ -4,10 +4,16 @@ import { getSelectedLocation } from '../ducks/mission';
 import { getCuriosForLocation } from '../data/curios';
 
 function renderOutcome(outcome) {
+  let amount;
+  if (outcome.amount) {
+    amount = <span className='curio-outcome-amount'>&nbsp;x{outcome.amount}</span>
+  }
+
   return <div className='curio-outcome'>
     <span className='curio-outcome-chances'>{outcome.chances}%</span>
     &nbsp;
     <span className='curio-outcome-label'>{outcome.type.label}</span>
+    {amount}
   </div>
 }
 

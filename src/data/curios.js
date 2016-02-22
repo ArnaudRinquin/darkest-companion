@@ -79,8 +79,7 @@ const universalCurios = [
         outcomes: [
           {
             chances: 50,
-            type: outcomeTypes.add50Stress,
-            amount: 1.5,
+            type: outcomeTypes.add50Stress
           },
           {
             chances: 33,

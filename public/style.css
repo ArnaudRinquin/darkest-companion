@@ -10,6 +10,16 @@ h1 {
     font-weight: bold;
 }
 
+input[type=radio] {
+  margin: 0 5px 0 20px;
+}
+
+.provision-amount {
+  width: 20px;
+  text-align: right;
+  display: inline-block;
+}
+
 .selectorsAndProvisions {
   display: flex;
   flex-wrap: wrap;
