@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    './index.js'
+    './src/index.js'
   ],
   devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
   output: {
