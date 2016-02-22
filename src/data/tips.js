@@ -11,7 +11,7 @@ const tips = {
       },
       {
         label: 'Direct damage',
-        details: 'No high PROT',
+        details: 'Few high PROT ennemies',
       },
     ],
     ineffective: [
@@ -31,7 +31,7 @@ const tips = {
       },
       {
         label: 'Books and bookshelves',
-        details: 'No good outcome',
+        details: 'High risk of bad outcome',
       },
     ]
   },
