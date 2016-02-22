@@ -11,7 +11,7 @@ const tips = {
       },
       {
         label: 'Direct damage',
-        details: 'Few high PROT ennemies',
+        details: 'Few high PROT enemies',
       },
     ],
     ineffective: [
