@@ -3,6 +3,7 @@ body {
   color: #C7C7C7;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   padding: 5px;
+  cursor: url(./cursor.png), auto;
 }
 
 h1 {
@@ -10,8 +11,9 @@ h1 {
   font-weight: bold;
 }
 
-input[type=radio] {
+input[type=radio], input~label {
   margin: 0 5px 0 20px;
+  cursor: url(./cursor_link.png), auto;
 }
 
 .copyrights {
@@ -21,6 +23,7 @@ input[type=radio] {
 
 .copyrights a:visited, .copyrights a {
   color: white;
+  cursor: url(./cursor_link.png), auto;
 }
 
 .provisions-list {
