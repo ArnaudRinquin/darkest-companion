@@ -42,7 +42,7 @@ input[type=radio] {
 
 .curio-cell {
   flex: 0 1 auto;
-  width: 300px;
+  width: 200px;
   margin: 5px 0;
 }
 
@@ -50,10 +50,17 @@ input[type=radio] {
   font-size: 20px;
   color: white;
 }
+.curio-with {
+  color: white;
+}
 
 .curio-outcome {
   padding-left: 5px;
   padding-top: 5px;
+}
+
+.curio-outcome-chances {
+  margin-right: 5px;
 }
 
 .location-tips {
@@ -63,12 +70,12 @@ input[type=radio] {
 .tips-category-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 
 }
 
 .tips-category-item {
-  margin: 0 5px;
+  margin: 10px 5px;
   width: 150px;
 }
 

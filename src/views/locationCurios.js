@@ -3,15 +3,30 @@ import { connect } from 'react-redux';
 import { getSelectedLocation } from '../ducks/mission';
 import { getCuriosForLocation } from '../data/curios';
 
+const activatorLabels = {
+  'default': 'Nothing',
+  'holyWater': 'Holy water',
+  'shovel': 'Shovel',
+  'medicinalHerb': 'Medicinal herb',
+  'antivenom': 'Antivenom',
+  'torch': 'Torch',
+  'key': 'Skeleton key',
+}
+
 function renderOutcome(outcome, index) {
   let amount;
+  let chances;
   if (outcome.amount) {
     amount = <span className='curio-outcome-amount'>&nbsp;x{outcome.amount}</span>
   }
 
+  if (outcome.chances !== 100) {
+    chances = <span className='curio-outcome-chances'>{outcome.chances}%</span>
+  }
+
+
   return <div className='curio-outcome' key={`curio-outcome-${index}`}>
-    <span className='curio-outcome-chances'>{outcome.chances}%</span>
-    &nbsp;
+    {chances}
     <span className='curio-outcome-label'>{outcome.type.label}</span>
     {amount}
   </div>
@@ -19,7 +34,7 @@ function renderOutcome(outcome, index) {
 
 function renderCurioOption(option, index) {
   return <div className="curio-cell curio-option" key={`curio-option-${index}`}>
-    <div className="curio-with">{option.with}</div>
+    <div className="curio-with">{activatorLabels[option.with]}</div>
     {option.outcomes.map(renderOutcome)}
   </div>
 }
