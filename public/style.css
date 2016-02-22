@@ -25,6 +25,7 @@ input[type=radio] {
 
 .provisions-list {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .provision-item {
