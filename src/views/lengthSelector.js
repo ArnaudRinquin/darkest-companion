@@ -15,7 +15,7 @@ function createOptions(Radio) {
 }
 
 export function LengthSelector({selectedLength, selectLength}) {
-  return <section className="length-selector">
+  return <section className="length-selector centered">
     <h1>Length</h1>
     <RadioGroup name="length" selectedValue={selectedLength} onChange={selectLength}>
       {createOptions}
