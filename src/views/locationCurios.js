@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { getSelectedLocation } from '../ducks/mission';
 import { getCuriosForLocation } from '../data/curios';
 
-function renderOutcome(outcome) {
+function renderOutcome(outcome, index) {
   let amount;
   if (outcome.amount) {
     amount = <span className='curio-outcome-amount'>&nbsp;x{outcome.amount}</span>
   }
 
-  return <div className='curio-outcome'>
+  return <div className='curio-outcome' key={`curio-outcome-${index}`}>
     <span className='curio-outcome-chances'>{outcome.chances}%</span>
     &nbsp;
     <span className='curio-outcome-label'>{outcome.type.label}</span>
@@ -17,15 +17,15 @@ function renderOutcome(outcome) {
   </div>
 }
 
-function renderCurioOption(option) {
-  return <div className="curio-cell curio-option">
+function renderCurioOption(option, index) {
+  return <div className="curio-cell curio-option" key={`curio-option-${index}`}>
     <div className="curio-with">{option.with}</div>
     {option.outcomes.map(renderOutcome)}
   </div>
 }
 
-function renderCurio(curio) {
-  return <div className='curio'>
+function renderCurio(curio, index) {
+  return <div className='curio' key={`curio-${index}`}>
     <div className='curio-cell curio-description'>
       <div className='curio-name'>{curio.name}</div>
       <div  className='curio-description'>{curio.description}</div>

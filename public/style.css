@@ -55,3 +55,45 @@ input[type=radio] {
   padding-left: 5px;
   padding-top: 5px;
 }
+
+.location-tips {
+  width: 500px;
+}
+
+.tips-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.tips-category-item {
+  margin: 0 5px;
+  width: 150px;
+}
+
+.tips-category {
+  font-size: 18px;
+  color: white;
+}
+
+.tips-category-effective {
+  color: green;
+}
+
+.tips-category-ineffective {
+  color: orange;
+}
+
+.tips-category-dangers {
+  color: red;
+}
+
+.tips-list-item {
+  margin: 8px 0;
+}
+
+.tips-details {
+  padding-left: 5px;
+  font-size: 12px;
+}

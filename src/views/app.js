@@ -3,6 +3,7 @@ import LocationSelector from './locationSelector';
 import LengthSelector from './lengthSelector';
 import MissionProvisions from './missionProvisions';
 import LocationCurios from './locationCurios';
+import LocationTips from './locationTips';
 
 export default function App() {
   return <div className='app'>
@@ -12,6 +13,7 @@ export default function App() {
         <LengthSelector/>
       </div>
       <MissionProvisions/>
+      <LocationTips/>
     </div>
     <LocationCurios/>
   </div>
