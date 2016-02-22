@@ -28,7 +28,10 @@
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --profile --colors",
-    "dev": "webpack-dev-server --progress --profile --colors --hot"
+    "dev": "webpack-dev-server --progress --profile --colors --hot",
+    "prepublish": "git checkout master && git pull origin master && git checkout gh-pages && git rebase master",
+    "publish": "npm run build && cp public/* ./ && git add . && git commit -m 'Publish latest version'",
+    "postpublish": "git push origin gh-pages && git checkout master"
   },
   "repository": {
     "type": "git",
