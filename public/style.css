@@ -6,20 +6,53 @@ body {
 }
 
 h1 {
-    color: white;
-    font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
 input[type=radio] {
   margin: 0 5px 0 20px;
 }
 
-.provision-amount {
-  width: 20px;
-  text-align: right;
-  display: inline-block;
+.copyrights {
+  text-align: center;
+  font-size: 12px;
 }
 
+.copyrights a:visited, .copyrights a {
+  color: white;
+}
+
+.provisions-list {
+  display: flex;
+}
+
+.provision-item {
+  position: relative;
+}
+
+.provision-quantity {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.provision-icon {
+  width: 50px;
+}
+
+.provisions-total {
+  text-align: center;
+  margin: 5px;
+}
+
+.provisions-total-label {
+  color: white;
+}
+
+.provisions-total-amount {
+  font-size: 14px;
+}
 .selectorsAndProvisions {
   display: flex;
   flex-wrap: wrap;
@@ -71,7 +104,6 @@ input[type=radio] {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-
 }
 
 .tips-category-item {
