@@ -92,11 +92,11 @@ const outcomeTypes = {
   },
 }
 
-const provisionsIconPath = '/icons/provisions/'
+const provisionsIconPath = './icons/provisions/'
 const activators = {
   nothing: {
     label: 'Nothing',
-    icon: '/icons/redCross.png',
+    icon: './icons/redCross.png',
   },
   antivenom: {
     label: 'Antivenom',
@@ -132,7 +132,7 @@ const activators = {
   },
 }
 
-const iconPath = '/icons/curios/';
+const iconPath = './icons/curios/';
 
 const universalCurios = [
   {
