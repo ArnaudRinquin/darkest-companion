@@ -15,12 +15,12 @@ const outcomeTypes = {
   anyLoot: {
     label: 'Any loot',
   },
-  gainPositiveQuirk(type) {
+  gainPositiveQuirk(type = 'random') {
     return {
       label: `Gain ${type} positive quirk`,
     }
   },
-  gainNegativeQuirk(type) {
+  gainNegativeQuirk(type = 'random') {
     return {
       label: `Gain ${type} negative quirk`,
     }
@@ -45,6 +45,12 @@ const outcomeTypes = {
   },
   goldTrinket: {
     label: 'Gold or trinket',
+  },
+  goldFoodTrinket: {
+    label: 'Gold or food or trinket',
+  },
+  goldGemsFood: {
+    label: 'Gold or gems or food',
   },
   addStress(amount) {
     return {
@@ -72,12 +78,22 @@ const outcomeTypes = {
   blight: {
     label: 'Blight',
   },
-  buffUntilCamp(buffType, by) {
+  buffUntilCamp(buffType, by, percent) {
     return {
-      label: `Buff ${buffType} +${by}% Until Camp`,
+      label: `Buff ${buffType} +${by}${percent ? '%' : ''} Until Camp`,
     }
   },
-  disease(diseaseName) {
+  buff(buffType, by, percent) {
+    return {
+      label: `Buff ${buffType} +${by}${percent ? '%' : ''}`,
+    }
+  },
+  debuff(buffType, by, percent) {
+    return {
+      label: `Debuff ${buffType} +${by}${percent ? '%' : ''}`,
+    }
+  },
+  disease(diseaseName = 'random') {
     return {
       label: `${diseaseName} disease`,
     }
@@ -90,6 +106,11 @@ const outcomeTypes = {
   summonShambler: {
     label: 'Summon Shambler',
   },
+  buffDMGAndAccAndCRTAndCureStatusEffect(dmg, acc, crt) {
+    return {
+      label: `Buff +${dmg}% DMG, +${acc} ACC, +${crt}% CRT, Cure Status Effects`,
+    }
+  }
 }
 
 const provisionsIconPath = './icons/provisions/'
@@ -192,11 +213,11 @@ const universalCurios = [
           },
           {
             chances: 33,
-            type: outcomeTypes.gainPositiveQuirk('random'),
+            type: outcomeTypes.gainPositiveQuirk(),
           },
           {
             chances: 16,
-            type: outcomeTypes.gainNegativeQuirk('random'),
+            type: outcomeTypes.gainNegativeQuirk(),
           },
           {
             chances: 16,
@@ -431,7 +452,7 @@ const curiosPerLocation = {
             },
             {
               chances: 16,
-              type: outcomeTypes.gainPositiveQuirk('random'),
+              type: outcomeTypes.gainPositiveQuirk(),
             },
             {
               chances: 8,
@@ -501,7 +522,7 @@ const curiosPerLocation = {
             },
             {
               chances: 3,
-              type: outcomeTypes.disease('Random'),
+              type: outcomeTypes.disease(),
             },
             {
               chances: 22,
@@ -582,7 +603,7 @@ const curiosPerLocation = {
             },
             {
               chances: 6,
-              type: outcomeTypes.disease('Random'),
+              type: outcomeTypes.disease(),
             },
             {
               chances: 20,
@@ -722,11 +743,11 @@ const curiosPerLocation = {
             },
             {
               chances: 26,
-              type: outcomeTypes.gainPositiveQuirk('Random'),
+              type: outcomeTypes.gainPositiveQuirk(),
             },
             {
               chances: 13,
-              type: outcomeTypes.gainNegativeQuirk('Random'),
+              type: outcomeTypes.gainNegativeQuirk(),
             },
             {
               chances: 13,
@@ -777,6 +798,322 @@ const curiosPerLocation = {
   ],
   'warrens': [
     ...universalCurios,
+    {
+      name: 'Bone Altar',
+      icon: `${iconPath}bone_altar.png`,
+      description: 'A dark altar with skulls prominently on display. A strange power can be felt in its presence.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.buffDMGAndAccAndCRTAndCureStatusEffect(15, 10, 5),
+              amount: 2,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Dinner Cart',
+      icon: `${iconPath}dinner_cart.png`,
+      description: 'A cart of human remains. It looks much like a feeding trough. Disgusting.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 25,
+              type: outcomeTypes.goldFoodTrinket,
+              amount: 1,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.disease(),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldFoodTrinket,
+              amount: 2,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Makeshift dining table',
+      icon: `${iconPath}makeshift_dining_table.png`,
+      description: 'An oddly assembled dining table. There might still be food scraps around.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 25,
+              type: outcomeTypes.goldFoodTrinket,
+              amount: 1,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.disease(),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldFoodTrinket,
+              amount: 2,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Occult Scrawlings',
+      icon: `${iconPath}occult_scrawlings.png`,
+      description: 'Scrawlings written on what looks like stretched and tanned human flesh...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 33.3,
+              type: outcomeTypes.gainPositiveQuirk(),
+              amount: 1,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.addStress(25),
+            },
+            {
+              chances: 17.6,
+              type: outcomeTypes.gainNegativeQuirk(),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.holyWater,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.debuff('DODGE', 20),
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Pile of Bones',
+      icon: `${iconPath}pile_of_bones.png`,
+      description: 'All that\'s left of a previous adventurer, perhaps.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 25,
+              type: outcomeTypes.anyLoot,
+              amount: 2,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.disease(),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.gainNegativeQuirk('Bloodthirsty'),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.holyWater,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 2,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Pile of Scrolls',
+      icon: `${iconPath}pile_of_scrolls.png`,
+      description: 'A bunch of scrolls. The cursive is sloppy and difficult to read.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 33.3,
+              type: outcomeTypes.scouting
+            },
+            {
+              chances: 16.7,
+              type: outcomeTypes.addStress(15),
+            },
+            {
+              chances: 11.1,
+              type: outcomeTypes.gainPositiveQuirk(),
+            },
+            {
+              chances: 5.6,
+              type: outcomeTypes.gainNegativeQuirk(),
+            },
+            {
+              chances: 33.3,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.torch,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.purgeNegativeQuirk,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Rack of Blades',
+      icon: `${iconPath}rack_of_blades.png`,
+      description: 'A rack of dulled, rusty knives. They are covered in fresh blood.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 40,
+              type: outcomeTypes.goldGemsFood
+            },
+            {
+              chances: 40,
+              type: outcomeTypes.bleed,
+            },
+            {
+              chances: 20,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.bandage,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldGemsFood,
+              amount: 1.5,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Sacrifial Stone',
+      icon: `${iconPath}sacrificial_stone.png`,
+      description: 'A stone used for ancient, barbaric rituals.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.addStress(50),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.purgeNegativeQuirk,
+            },
+            {
+              chances: 12.5,
+              type: outcomeTypes.gainPositiveQuirk('Warrens Explorer'),
+            },
+            {
+              chances: 12.5,
+              type: outcomeTypes.gainPositiveQuirk('Warrens Explorer'),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Stack of Books',
+      icon: `${iconPath}stack_of_books.png`,
+      description: 'A stack of literary treasures in an unlikely location.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 26.7,
+              type: outcomeTypes.addStress(25),
+            },
+            {
+              chances: 26.7,
+              type: outcomeTypes.gainPositiveQuirk(),
+            },
+            {
+              chances: 13.3,
+              type: outcomeTypes.gainNegativeQuirk(),
+            },
+            {
+              chances: 13.3,
+              type: outcomeTypes.decreaseLight(25),
+            },
+            {
+              chances: 20,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.torch,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.addStress(100),
+            },
+          ],
+        },
+      ],
+    },
   ],
   'weald': [
     ...universalCurios,
