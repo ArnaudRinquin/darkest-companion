@@ -15,6 +15,9 @@ const outcomeTypes = {
   anyLoot: {
     label: 'Any loot',
   },
+  food: {
+    label: 'Food',
+  },
   gainPositiveQuirk(type = 'random') {
     return {
       label: `Gain ${type} positive quirk`,
@@ -40,6 +43,9 @@ const outcomeTypes = {
   goldHeirlooms: {
     label: 'Gold or heirloooms',
   },
+  goldSuppliesHeirlooms: {
+    label: 'Gold, supplies or heirloooms',
+  },
   goldGems: {
     label: 'Gold or gems',
   },
@@ -47,10 +53,16 @@ const outcomeTypes = {
     label: 'Gold or trinket',
   },
   goldFoodTrinket: {
-    label: 'Gold or food or trinket',
+    label: 'Gold, food or trinket',
+  },
+  goldGemsTrinket: {
+    label: 'Gold, gems or trinket',
   },
   goldGemsFood: {
-    label: 'Gold or gems or food',
+    label: 'Gold, gems or food',
+  },
+  gemsHerlooms: {
+    label: 'Gems or herlooms',
   },
   addStress(amount) {
     return {
@@ -1117,6 +1129,349 @@ const curiosPerLocation = {
   ],
   'weald': [
     ...universalCurios,
+    {
+      name: 'Ancient Coffin',
+      icon: `${iconPath}ancient_coffin.png`,
+      description: 'An old coffin. It is slightly ajar.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.goldHeirlooms,
+              amount: 2,
+            },
+            {
+              chances: 8.3,
+              type: outcomeTypes.gainPositiveQuirk('Weald Adventurer'),
+            },
+            {
+              chances: 8.3,
+              type: outcomeTypes.gainPositiveQuirk('Weald Adventurer'),
+            },
+            {
+              chances: 33.3,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Beast Carcass',
+      icon: `${iconPath}beast_carcass.png`,
+      description: 'Something has recently mutilated this creature...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 42.9,
+              type: outcomeTypes.food,
+            },
+            {
+              chances: 28.6,
+              type: outcomeTypes.disease('Rabies'),
+            },
+            {
+              chances: 14.3,
+              type: outcomeTypes.gainNegativeQuirk('Zoophobia'),
+            },
+            {
+              chances: 14.3,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.food,
+              amount: 2
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Eerie Spiderweb',
+      icon: `${iconPath}eerie_spiderweb.png`,
+      description: 'A spiderweb with a strange glow to it. There might be something behind it.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 40,
+              type: outcomeTypes.goldGemsTrinket,
+            },
+            {
+              chances: 10,
+              type: outcomeTypes.gainNegativeQuirk('Slow Reflexes'),
+            },
+            {
+              chances: 10,
+              type: outcomeTypes.gainNegativeQuirk('Slowdraw'),
+            },
+            {
+              chances: 40,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.bandage,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldGemsTrinket,
+              amount: 1.5
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Left Luggage',
+      icon: `${iconPath}left_luggage.png`,
+      description: 'Someone dropped this recently. Probably on the run. It has a lock on it.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.anyLoot,
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.blight,
+            },
+          ],
+        },
+        {
+          activator: activators.skeletonKey,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 3
+            },
+          ],
+        },
+        {
+          activator: activators.antivenom,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 3
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Mummified Remains',
+      icon: `${iconPath}mummified_remains.png`,
+      description: 'Ancient remains. The body looks well preserved.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 40,
+              type: outcomeTypes.goldTrinket,
+            },
+            {
+              chances: 40,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 20,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.bandage,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldTrinket,
+              amount: 2
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Old Tree',
+      icon: `${iconPath}old_tree.png`,
+      description: 'This tree has a huge hole in the trunk. Perhaps there\'s something inside...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.anyLoot,
+              amount: 2,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.antivenom,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 3,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Pristine Fountain',
+      icon: `${iconPath}pristine_fountain.png`,
+      description: 'A beautiful fountain. It looks unaffected by the surrounding chaos.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.removeStress(20),
+            },
+          ],
+        },
+        {
+          activator: activators.holyWater,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.removeStress(30),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Shallow Grave',
+      icon: `${iconPath}shallow_grave.png`,
+      description: 'A grave, dug in haste.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.disease(),
+            },
+          ],
+        },
+        {
+          activator: activators.shovel,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.gemsHerlooms,
+              amount: 3,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Traveler\'s Tent',
+      icon: `${iconPath}travelers_tent.png`,
+      description: 'Someone has camped here recently.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 37.5,
+              type: outcomeTypes.goldSuppliesHeirlooms,
+              amount: 2,
+            },
+            {
+              chances: 37.5,
+              type: outcomeTypes.scouting,
+            },
+            {
+              chances: 12.5,
+              type: outcomeTypes.addStress(25),
+            },
+            {
+              chances: 12.5,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Troubling Effigy',
+      icon: `${iconPath}troubling_effigy.png`,
+      description: 'An unsettling effigy erected in service to a mysterious god.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 18.7,
+              type: outcomeTypes.gainPositiveQuirk(),
+            },
+            {
+              chances: 18.7,
+              type: outcomeTypes.gainNegativeQuirk(),
+            },
+            {
+              chances: 18.7,
+              type: outcomeTypes.bleed,
+            },
+            {
+              chances: 9.4,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 9.4,
+              type: outcomeTypes.addStress(15),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.holyWater,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.gainPositiveQuirk(),
+            },
+          ],
+        },
+      ],
+    },
   ],
   'cove': [
     ...universalCurios,
