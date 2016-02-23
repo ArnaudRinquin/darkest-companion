@@ -1669,7 +1669,7 @@ const curiosPerLocation = {
           ],
         },
         {
-          activator: activators.medicinalHerb,
+          activator: activators.holyWater,
           outcomes: [
             {
               chances: 50,
