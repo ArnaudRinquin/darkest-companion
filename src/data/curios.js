@@ -1,4 +1,10 @@
 
+function concatBuffEffects(effects = []) {
+  return effects.map(function effectToString({type, amount, percent}){
+    return `${amount}${percent ? '%' : ''} ${type}`;
+  }).join(', ');
+}
+
 const outcomeTypes = {
   nothing: {
     label: 'Nothing',
@@ -64,6 +70,9 @@ const outcomeTypes = {
   gemsHerlooms: {
     label: 'Gems or herlooms',
   },
+  goldGemsHeirloomsSupplies: {
+    label: 'Gold, gems, heirlooms or supplies',
+  },
   addStress(amount) {
     return {
       label: `Stress +${amount}`,
@@ -90,19 +99,14 @@ const outcomeTypes = {
   blight: {
     label: 'Blight',
   },
-  buffUntilCamp(buffType, by, percent) {
+  buff(effects, untilCamp) {
     return {
-      label: `Buff ${buffType} +${by}${percent ? '%' : ''} Until Camp`,
+      label: `Buff ${concatBuffEffects(effects)}${untilCamp ? ' until camp' : ''}`,
     }
   },
-  buff(buffType, by, percent) {
+  debuff(effects, untilCamp) {
     return {
-      label: `Buff ${buffType} +${by}${percent ? '%' : ''}`,
-    }
-  },
-  debuff(buffType, by, percent) {
-    return {
-      label: `Debuff ${buffType} +${by}${percent ? '%' : ''}`,
+      label: `Debuff ${concatBuffEffects(effects)}${untilCamp ? ' until camp' : ''}`,
     }
   },
   disease(diseaseName = 'random') {
@@ -431,7 +435,10 @@ const curiosPerLocation = {
           outcomes: [
             {
               chances: 100,
-              type: outcomeTypes.buffUntilCamp('DMG', 20),
+              type: outcomeTypes.buff([{
+                  type: 'DMG',
+                  amount: 20,
+                }], true),
             },
           ],
         },
@@ -440,7 +447,10 @@ const curiosPerLocation = {
           outcomes: [
             {
               chances: 100,
-              type: outcomeTypes.buffUntilCamp('DMG', 30),
+              type: outcomeTypes.buff([{
+                type: 'DMG',
+                amount: 30,
+              }], true),
             },
           ],
         },
@@ -792,8 +802,15 @@ const curiosPerLocation = {
           outcomes: [
             {
               chances: 75,
-              type: outcomeTypes.buffUntilCamp('PROT/DODGE', 10),
-              amount: 2,
+              type: outcomeTypes.buff([{
+                  type: 'DODGE',
+                  amount: 10
+                },
+                {
+                  type: 'PROT',
+                  amount: 10,
+                  percent: true,
+                }], true),
             },
             {
               chances: 12.5,
@@ -937,7 +954,10 @@ const curiosPerLocation = {
           outcomes: [
             {
               chances: 100,
-              type: outcomeTypes.debuff('DODGE', 20),
+              type: outcomeTypes.debuff([{
+                type: 'DODGE',
+                amount: 20,
+              }]),
             },
           ],
         },
@@ -1475,6 +1495,325 @@ const curiosPerLocation = {
   ],
   'cove': [
     ...universalCurios,
+    {
+      name: 'Barnacle Crusted Chest',
+      icon: `${iconPath}bernacle_crusted_chest.png`,
+      description: 'A treasure chest blanketed in barnacles.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.goldGemsHeirloomsSupplies,
+              amount: 2,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.bleed,
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.shovel,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 3,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Bas-Relief',
+      icon: `${iconPath}bas_relief.png`,
+      description: 'A puzzingly ancient sculpture of dizzying implication...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 66.7,
+              type: outcomeTypes.gainPositiveQuirk(),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.gainNegativeQuirk(),
+            },
+            {
+              chances: 8.3,
+              type: outcomeTypes.disease(),
+            },
+          ],
+        },
+        {
+          activator: activators.shovel,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.addStress(100),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Brackish Tidepool',
+      icon: `${iconPath}brackish_tidepool.png`,
+      description: 'A pool of water cupped in smooth stone. Its color looks sightly off...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 75,
+              type: outcomeTypes.buff([{
+                type: 'Bleed, Blight, Disease and Debuff resist',
+                amount: 33,
+                percent: true,
+              }], true),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.disease(),
+            },
+          ],
+        },
+        {
+          activator: activators.antivenom,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.healStressEffectAndHP(5, 5),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Eerie Coral',
+      icon: `${iconPath}eerie_coral.png`,
+      description: 'There is something odd about this coral.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.removeStress(10),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.addStress(25),
+            },
+            {
+              chances: 25,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.purgeNegativeQuirk,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Fish Idol',
+      icon: `${iconPath}fish_idol.png`,
+      description: 'A strange presence is felt near this statue of worship.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.debuff(
+                [
+                  {
+                    type: 'DMG',
+                    amount: -25,
+                    percent: true,
+                  },
+                  {
+                    type: 'ACC',
+                    amount: -10,
+                  },
+                ], true),
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.debuff(
+                [
+                  {
+                    type: 'DODGE',
+                    amount: -12,
+                  },
+                  {
+                    type: 'Marked',
+                    amount: '3 round',
+                  },
+                ], true),
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.buff(
+                [
+                  {
+                    type: 'DMG',
+                    amount: 18,
+                    percent: true,
+                  },
+                ], true),
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.buff(
+                [
+                  {
+                    type: 'DMG',
+                    amount: 10,
+                    percent: true,
+                  },
+                  {
+                    type: 'ACC',
+                    amount: 5,
+                  },
+              ], true),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Giant Fish Carcass',
+      icon: `${iconPath}giant_fish_carcass.png`,
+      description: 'A stuffed sea creature has washed ashore. Wonder that it ate...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 16.7,
+              type: outcomeTypes.goldGemsSupplies,
+            },
+            {
+              chances: 16.7,
+              type: outcomeTypes.disease('The Red Plague'),
+            },
+            {
+              chances: 11.1,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 5.5,
+              type: outcomeTypes.bleed,
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.anyLoot,
+              amount: 3,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Giant Oyster',
+      icon: `${iconPath}giant_oyster.png`,
+      description: 'A live oyster. Who knows what value it hides...',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 40,
+              type: outcomeTypes.goldTrinket,
+              amount: 2,
+            },
+            {
+              chances: 40,
+              type: outcomeTypes.bleed,
+            },
+            {
+              chances: 20,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.shovel,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldTrinket,
+              amount: 3,
+            },
+          ],
+        },
+        {
+          activator: activators.dogTreats,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.buff([{
+                type: 'DODGE',
+                amount: 25,
+              }]),
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Ship\'s Figurehead',
+      icon: `${iconPath}ships_figurehead.png`,
+      description: 'The figurehead emits a marvelous aura.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 66.7,
+              type: outcomeTypes.buff([{
+                type: 'SPD',
+                amount: 20,
+                percent: true,
+              }], true),
+            },
+            {
+              chances: 33.3,
+              type: outcomeTypes.removeStress(30),
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
 
