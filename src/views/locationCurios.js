@@ -3,16 +3,6 @@ import { connect } from 'react-redux';
 import { getSelectedLocation } from '../ducks/mission';
 import { getCuriosForLocation } from '../data/curios';
 
-const activatorLabels = {
-  'default': 'Nothing',
-  'holyWater': 'Holy water',
-  'shovel': 'Shovel',
-  'medicinalHerb': 'Medicinal herb',
-  'antivenom': 'Antivenom',
-  'torch': 'Torch',
-  'key': 'Skeleton key',
-}
-
 function renderOutcome(outcome, index) {
   let amount;
   let chances;
@@ -34,16 +24,30 @@ function renderOutcome(outcome, index) {
 
 function renderCurioOption(option, index) {
   return <div className="curio-cell curio-option" key={`curio-option-${index}`}>
-    <div className="curio-with">{activatorLabels[option.with]}</div>
-    {option.outcomes.map(renderOutcome)}
+    <div className="curio-cell-container">
+      <div className="curio-cell-item">
+        <img className="curio-activator" src={option.activator.icon} alt={option.activator.label}></img>
+      </div>
+      <div className="curio-cell-item">
+        {option.outcomes.map(renderOutcome)}
+      </div>
+  </div>
   </div>
 }
 
 function renderCurio(curio, index) {
+
+  let icon;
+
+  if (curio.icon) {
+    icon = <img className='curio-icon' src={curio.icon} alt={curio.label}/>
+  }
+
   return <div className='curio' key={`curio-${index}`}>
     <div className='curio-cell curio-description'>
       <div className='curio-name'>{curio.name}</div>
-      <div  className='curio-description'>{curio.description}</div>
+      {icon}
+      {/*<div  className='curio-description'>{curio.description}</div>*/}
     </div>
     {curio.options.map(renderCurioOption)}
   </div>

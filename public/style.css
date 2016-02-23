@@ -3,7 +3,7 @@
 
 body {
   background: #424242;
-  color: #C7C7C7;
+  color: #A0A0A0;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   padding: 5px;
   cursor: url(./cursor.png), auto;
@@ -29,7 +29,7 @@ input[type=radio], input~label {
 }
 
 .copyrights a:visited, .copyrights a {
-  color: white;
+  color: #989898;
   cursor: url(./cursor_link.png), auto;
 }
 
@@ -60,7 +60,7 @@ input[type=radio], input~label {
 }
 
 .provisions-total-label {
-  color: white;
+  color: #989898;
 }
 
 .provisions-total-amount {
@@ -83,7 +83,8 @@ input[type=radio], input~label {
 .curio {
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 0;
+  margin: 10px 0 30px 0;
+  align-items: center;
 }
 
 .curio-cell {
@@ -92,17 +93,42 @@ input[type=radio], input~label {
   margin: 5px 0;
 }
 
+.curio-activator {
+  width: 40px;
+  margin: 0 5px;
+}
+
+.curio-cell-container {
+  display: flex;
+  align-items: center;
+}
+
+.curio-cell-item {
+  flex: 0 1 auto;
+}
+
+.curio-icon {
+  max-width: 120px;
+}
+
+.curio-description {
+  text-align: center;
+  font-size: 18px;
+  width: 150px;
+}
+
 .curio-name {
-  font-size: 20px;
-  color: white;
+  color: #989898;
+  margin-bottom: 10px;
 }
 .curio-with {
-  color: white;
+  color: #989898;
 }
 
 .curio-outcome {
   padding-left: 5px;
   padding-top: 5px;
+  font-size: 14px;
 }
 
 .curio-outcome-chances {
@@ -126,7 +152,7 @@ input[type=radio], input~label {
 
 .tips-category {
   font-size: 18px;
-  color: white;
+  color: #989898;
 }
 
 .tips-category-effective {

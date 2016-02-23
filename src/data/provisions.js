@@ -1,6 +1,6 @@
 // Data from @damp
 // https://docs.google.com/spreadsheets/d/1e9VBtUO0tY2l58DSUb_JHnULDuAhziqnOCQH1VS4GtY/edit#gid=61256338
-const iconPath = `./icons/`
+const iconPath = `./icons/provisions/`
 
 const provisions = {
   firewood: {

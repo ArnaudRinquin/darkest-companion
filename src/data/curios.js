@@ -1,3 +1,4 @@
+
 const outcomeTypes = {
   nothing: {
     label: 'Nothing',
@@ -91,12 +92,55 @@ const outcomeTypes = {
   },
 }
 
+const provisionsIconPath = '/icons/provisions/'
+const activators = {
+  nothing: {
+    label: 'Nothing',
+    icon: '/icons/redCross.png',
+  },
+  antivenom: {
+    label: 'Antivenom',
+    icon: `${provisionsIconPath}/Antivenom.png`,
+  },
+  bandage: {
+    label: 'Bandage',
+    icon: `${provisionsIconPath}/Bandage.png`,
+  },
+  dogTreats: {
+    label: 'Dog Treats',
+    icon: `${provisionsIconPath}/Dog_Treats.png`,
+  },
+  holyWater: {
+    label: 'Holy Water',
+    icon: `${provisionsIconPath}/Holy_Water.png`,
+  },
+  medicinalHerb: {
+    label: 'Medicinal Herb',
+    icon: `${provisionsIconPath}/Medicinal_Herbs.png`,
+  },
+  shovel: {
+    label: 'Shovel',
+    icon: `${provisionsIconPath}/Shovel.png`,
+  },
+  skeletonKey: {
+    label: 'Skeleton Key',
+    icon: `${provisionsIconPath}/Skeleton_Key.png`,
+  },
+  torch: {
+    label: 'Torch',
+    icon: `${provisionsIconPath}/Torch.png`,
+  },
+}
+
+const iconPath = '/icons/curios/';
+
 const universalCurios = [
   {
     name: 'Crate',
+    icon: `${iconPath}crate.png`,
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 75,
@@ -112,9 +156,10 @@ const universalCurios = [
   },
   {
     name: 'Discarded Pack',
+    icon: `${iconPath}discarded_pack.png`,
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 60,
@@ -135,10 +180,11 @@ const universalCurios = [
   },
   {
     name: 'Eldritch Altar',
+    icon: `${iconPath}eldritch_alter.png`,
     description: 'A weird and unnatural statuette that appears to be an item of unholy worship.',
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 50,
@@ -159,7 +205,7 @@ const universalCurios = [
         ],
       },
       {
-        with: 'holyWater',
+        activator: activators.holyWater,
         outcomes: [
           {
             chances: 100,
@@ -171,10 +217,11 @@ const universalCurios = [
   },
   {
     name: 'Heirloom Chest',
+    icon: `${iconPath}heirloom_chest.png`,
     description: 'A chest with your family\'s sigil.',
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 75,
@@ -192,7 +239,7 @@ const universalCurios = [
         ],
       },
       {
-        with: 'key',
+        activator: activators.skeletonKey,
         outcomes: [
           {
             chances: 100,
@@ -202,7 +249,7 @@ const universalCurios = [
         ],
       },
       {
-        with: 'antivenom',
+        activator: activators.antivenom,
         outcomes: [
           {
             chances: 100,
@@ -215,9 +262,10 @@ const universalCurios = [
   },
   {
     name: 'Sack',
+    icon: `${iconPath}sack.png`,
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 75,
@@ -233,9 +281,10 @@ const universalCurios = [
   },
   {
     name: 'Sconce',
+    icon: `${iconPath}sconce.png`,
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 100,
@@ -247,10 +296,11 @@ const universalCurios = [
   },
   {
     name: 'Shambler\'s Altar',
+    icon: `${iconPath}shamblers_altar.png`,
     description: 'It says: "The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!"',
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 100,
@@ -259,7 +309,7 @@ const universalCurios = [
         ],
       },
       {
-        with: 'torch',
+        activator: activators.torch,
         outcomes: [
           {
             chances: 100,
@@ -271,10 +321,11 @@ const universalCurios = [
   },
   {
     name: 'Unlocked Strongbox',
+    icon: `${iconPath}unlocked_strongbox.png`,
     description: 'A long-forgotten strongbox sits on the cold stone floor, its contents unknown.',
     options: [
       {
-        with: 'default',
+        activator: activators.nothing,
         outcomes: [
           {
             chances: 75,
@@ -296,10 +347,11 @@ const curiosPerLocation = {
     ...universalCurios,
     {
       name: 'Alchemy Table',
+      icon: `${iconPath}alchemy_table.png`,
       description: 'A partially intact set of experimental equipment.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 50,
@@ -316,7 +368,7 @@ const curiosPerLocation = {
           ],
         },
         {
-          with: 'torch',
+          activator: activators.torch,
           outcomes: [
             {
               chances: 100,
@@ -325,7 +377,7 @@ const curiosPerLocation = {
           ],
         },
         {
-          with: 'medicinalHerb',
+          activator: activators.medicinalHerb,
           outcomes: [
             {
               chances: 100,
@@ -338,10 +390,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Altar of Light',
+      icon: `${iconPath}altar_of_light.png`,
       description: 'A small holy altar seems out of place against the backdrop of corruption.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 100,
@@ -350,7 +403,7 @@ const curiosPerLocation = {
           ],
         },
         {
-          with: 'holyWater',
+          activator: activators.holyWater,
           outcomes: [
             {
               chances: 100,
@@ -362,10 +415,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Bookshelf',
+      icon: `${iconPath}bookshelf.png`,
       description: 'A bookshelf full of old, leather-bound books.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 25,
@@ -393,10 +447,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Confession Booth',
+      icon: `${iconPath}confession_booth.png`,
       description: 'A forsaken confession booth. It hasn\'t been used in years.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 50,
@@ -413,7 +468,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'holyWater',
+          activator: activators.holyWater,
           outcomes: [
             {
               chances: 100,
@@ -425,10 +480,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Decorative Urn',
+      icon: `${iconPath}decorative_urn.png`,
       description: 'An urn holds ashes of the departed.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 44,
@@ -454,7 +510,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'holyWater',
+          activator: activators.holyWater,
           outcomes: [
             {
               chances: 100,
@@ -464,7 +520,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'shovel',
+          activator: activators.shovel,
           outcomes: [
             {
               chances: 100,
@@ -476,10 +532,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Holy Fountain',
+      icon: `${iconPath}holy_fountain.png`,
       description: 'An ornate fountain of holy purport.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 50,
@@ -492,7 +549,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'holyWater',
+          activator: activators.holyWater,
           outcomes: [
             {
               chances: 100,
@@ -504,10 +561,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Iron Maiden',
+      icon: `${iconPath}iron_maiden.png`,
       description: 'A rusty iron maiden stands against the wall, clasped shut.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 40,
@@ -533,7 +591,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'medicinalHerb',
+          activator: activators.medicinalHerb,
           outcomes: [
             {
               chances: 100,
@@ -545,10 +603,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Locked Display Cabinet',
+      icon: `${iconPath}locked_display_cabinet.png`,
       description: 'There could be valuables left inside, but this cabinet is locked.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 50,
@@ -562,7 +621,48 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'key',
+          activator: activators.skeletonKey,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldGemsHeirlooms,
+              amount: 2.5,
+            },
+          ]
+        },
+        {
+          activator: activators.shovel,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.goldGemsHeirlooms,
+              amount: 2,
+            },
+          ]
+        }
+      ]
+    },
+    {
+      name: 'Locked Sarcophagus',
+      icon: `${iconPath}locked_sarcophagus.png`,
+      description: 'An ornate sarcophagus. It\'s locked.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 50,
+              type: outcomeTypes.bleed,
+              amount: 2,
+            },
+            {
+              chances: 50,
+              type: outcomeTypes.blight,
+            },
+          ]
+        },
+        {
+          activator: activators.skeletonKey,
           outcomes: [
             {
               chances: 100,
@@ -572,7 +672,7 @@ const curiosPerLocation = {
           ]
         },
         {
-          with: 'shovel',
+          activator: activators.shovel,
           outcomes: [
             {
               chances: 100,
@@ -584,10 +684,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Sarcophagus',
+      icon: `${iconPath}sarcophagus.png`,
       description: 'An ornate sarcophagus. It is slightly ajar.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 60,
@@ -608,10 +709,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Stack of books',
+      icon: `${iconPath}stack_of_books.png`,
       description: 'A stack of literary treasures in an unlikely location.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 26,
@@ -637,7 +739,7 @@ const curiosPerLocation = {
           ],
         },
         {
-          with: 'torch',
+          activator: activators.torch,
           outcomes: [
             {
               chances: 100,
@@ -649,10 +751,11 @@ const curiosPerLocation = {
     },
     {
       name: 'Suit of Armor',
+      icon: `${iconPath}suit_of_armor.png`,
       description: 'An antique suit of armor stands amidst the ruins.',
       options: [
         {
-          with: 'default',
+          activator: activators.nothing,
           outcomes: [
             {
               chances: 75,
