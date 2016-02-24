@@ -26,14 +26,17 @@ function renderProvision(provision) {
 export function MissionProvisions({selectedLocation, selectedLength}) {
   const provisions = getMissionProvisions(selectedLocation, selectedLength);
 
-  return <section className="level-provisions">
-    <h1 className='centered'>Provisions</h1>
+  return <section className="level-provisions centered">
+    <h1>Provisions</h1>
     <div className='provisions-list'>
       {types.map(type => renderProvision(provisions[type]))}
     </div>
     <div className='provisions-total'>
-      <span className='provisions-total-label'>Total Cost:&nbsp;</span>
-      <span className='provisions-total-amount'>{provisions.totalCost}</span>
+      <span className='provisions-total-label'>Total Cost:</span>
+      &nbsp;
+      <img src='./icons/coin.png'/>
+      &nbsp;
+      <span className='provisions-total-amount'>{provisions.totalCost.toLocaleString()}</span>
     </div>
   </section>
 }

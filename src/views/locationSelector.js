@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
-import RadioGroup from 'react-radio-group';
 import { connect } from 'react-redux';
-import Capitalize from '../components/capitalize';
+import { TorchRadioGroup } from '../components/torchRadioGroup';
 import { LOCATIONS, selectLocation, getSelectedLocation  } from '../ducks/mission';
-
-function createOptions(Radio) {
-  const options = LOCATIONS.map((location) => {
-    return <span key={`location-option-${location}`}>
-        <Radio id={location} value={location}/>
-        <label htmlFor={location}>
-          <Capitalize text={location}/>
-        </label>
-      </span>
-  });
-
-  return <div>{options}</div>
-}
 
 export function LocationSelector({selectedLocation, selectLocation}) {
   return <section className="location-selector centered">
     <h1>Location</h1>
-    <RadioGroup name="location" selectedValue={selectedLocation} onChange={selectLocation}>
-      {createOptions}
-    </RadioGroup>
+    <TorchRadioGroup options={LOCATIONS} selectedValue={selectedLocation} onChange={selectLocation} name='location'/>
   </section>
 }
 

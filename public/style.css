@@ -1,8 +1,14 @@
-@font-face {font-family: 'DwarvenAxeBB';src: url('webfonts/3073CA_0_0.eot');src: url('webfonts/3073CA_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3073CA_0_0.woff2') format('woff2'),url('webfonts/3073CA_0_0.woff') format('woff'),url('./fonts/3073CA_0_0.ttf') format('truetype');}
-@font-face {font-family: 'DwarvenAxeBB-Italic';src: url('webfonts/3073CA_1_0.eot');src: url('webfonts/3073CA_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3073CA_1_0.woff2') format('woff2'),url('webfonts/3073CA_1_0.woff') format('woff'),url('./fonts/3073CA_1_0.ttf') format('truetype');}
+@font-face {font-family: 'DwarvenAxeBB';src: url('./fonts/3073CA_0_0.eot');src: url('./fonts/3073CA_0_0.eot?#iefix') format('embedded-opentype'),url('./fonts/3073CA_0_0.woff2') format('woff2'),url('./fonts/3073CA_0_0.woff') format('woff'),url('./fonts/3073CA_0_0.ttf') format('truetype');}
+@font-face {font-family: 'DwarvenAxeBB-Italic';src: url('./fonts/3073CA_1_0.eot');src: url('./fonts/3073CA_1_0.eot?#iefix') format('embedded-opentype'),url('./fonts/3073CA_1_0.woff2') format('woff2'),url('./fonts/3073CA_1_0.woff') format('woff'),url('./fonts/3073CA_1_0.ttf') format('truetype');}
+
+/*
+
+grey: #5D5A50
+yellow: #C9B569
+*/
 
 body {
-  background: #424242;
+  background: #2F2F2F;
   color: #A0A0A0;
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   padding: 5px;
@@ -10,7 +16,7 @@ body {
 }
 
 h1 {
-  color: black;
+  color: #C9B569;
   font-size: 40px;
   font-family: 'DwarvenAxeBB';
   font-weight: normal;
@@ -18,9 +24,41 @@ h1 {
   margin: 10px 0 5px 0;
 }
 
-input[type=radio], input~label {
-  margin: 0 5px 0 20px;
+.location-selector, .length-selector, .level-provisions {
+  width: 320px; /* = 8 * 40 */
+  margin-bottom: 20px;
+}
+
+.torch-radio-group > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.torch-radio {
+  flex: 0 1 auto;
   cursor: url(./cursor_link.png), auto;
+}
+
+.torch-radio > input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.torch-radio > .torch-radio-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width:  38px;
+  height: 56px;
+  text-align: center;
+  background: url('./checkbox_sprite.png') no-repeat -38px 0;
+}
+
+.torch-radio > input:checked + .torch-radio-icon {
+  background-position : 0 0;
+}
+
+.torch-radio > input:checked ~ .torch-radio-label {
+  color: #C9B569;
 }
 
 .copyrights {
@@ -29,43 +67,47 @@ input[type=radio], input~label {
 }
 
 .copyrights a:visited, .copyrights a {
-  color: #989898;
+  color: #C9B569;
   cursor: url(./cursor_link.png), auto;
 }
 
 .provisions-list {
   display: flex;
   flex-wrap: wrap;
+  width: 320px;
+  height: 160px;
+  background: url('./provisions_background.png') no-repeat 0 0;
 }
 
 .provision-item {
   position: relative;
+  height: 80px;
 }
 
 .provision-quantity {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
+  top: 4px;
+  left: 6px;
+  font-size: 18px;
+  color: #C9B569;
   font-family: 'DwarvenAxeBB';
 }
 
 .provision-icon {
-  width: 50px;
+  width: 40px;
 }
 
 .provisions-total {
   text-align: center;
   margin: 5px;
+  font-family: 'DwarvenAxeBB';
+  font-size: 24px;
 }
 
 .provisions-total-label {
-  color: #989898;
+  color: #C9B569;
 }
 
-.provisions-total-amount {
-  font-size: 14px;
-}
 .selectorsAndProvisions {
   display: flex;
   flex-wrap: wrap;
@@ -114,15 +156,15 @@ input[type=radio], input~label {
 .curio-description {
   text-align: center;
   font-size: 18px;
-  width: 150px;
+  width: 140px;
 }
 
 .curio-name {
-  color: #989898;
+  color: #C9B569;
   margin-bottom: 10px;
 }
 .curio-with {
-  color: #989898;
+  color: #C9B569;
 }
 
 .curio-outcome {
@@ -151,8 +193,8 @@ input[type=radio], input~label {
 }
 
 .tips-category {
-  font-size: 18px;
-  color: #989898;
+  font-size: 30px;
+  font-family: 'DwarvenAxeBB';
 }
 
 .tips-category-effective {
@@ -165,6 +207,10 @@ input[type=radio], input~label {
 
 .tips-category-dangers {
   color: red;
+}
+
+.tips-label {
+  color: #C9B569;
 }
 
 .tips-list-item {
