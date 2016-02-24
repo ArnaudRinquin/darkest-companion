@@ -131,7 +131,7 @@ h1 {
 
 .curio-cell {
   flex: 0 1 auto;
-  width: 200px;
+  width: 160px;
   margin: 5px 0;
 }
 
@@ -156,7 +156,6 @@ h1 {
 .curio-description {
   text-align: center;
   font-size: 18px;
-  width: 140px;
 }
 
 .curio-name {
