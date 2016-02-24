@@ -2,6 +2,8 @@
 
 A [Darkest Dungeon](http://www.darkestdungeon.com/) curios and provisions helper
 
+![screenshots](./screenshots.png)
+
 # Build and run
 
 ```bash
