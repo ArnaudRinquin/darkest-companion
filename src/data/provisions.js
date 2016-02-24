@@ -5,55 +5,63 @@ const iconPath = `./icons/provisions/`
 const provisions = {
   firewood: {
     label: 'Firewood',
-    icon: `${iconPath}Firewood.png`,
+    icon: _ => `${iconPath}Firewood.png`,
     cost: 0,
     stack: 1,
   },
   food: {
     label: 'Food',
-    icon: `${iconPath}Food.png`,
+    icon: quantity => {
+      if (quantity < 6) {
+        return `${iconPath}Food_1.png`;
+      } else if (quantity < 12) {
+        return `${iconPath}Food_2.png`;
+      } else {
+        return `${iconPath}Food_3.png`;
+      }
+    },
     cost: 75,
     stack: 12,
   },
   shovels: {
     label: 'Shovels',
-    icon: `${iconPath}Shovel.png`,
+    icon: _ => `${iconPath}Shovel.png`,
     cost: 250,
     stack: 4,
   },
   antivenoms: {
     label: 'Antivenoms',
-    icon: `${iconPath}Antivenom.png`,
+    icon: _ => `${iconPath}Antivenom.png`,
     cost: 150,
     stack: 6,
   },
   bandages: {
     label: 'Bandages',
-    icon: `${iconPath}Bandage.png`,
+    icon: _ => `${iconPath}Bandage.png`,
     cost: 150,
     stack: 6,
   },
   herbs: {
     label: 'Medicinal Herbs',
-    icon: `${iconPath}Medicinal_Herbs.png`,
+    icon: _ => `${iconPath}Medicinal_Herbs.png`,
     cost: 200,
     stack: 6,
   },
   keys: {
     label: 'Skeleton Keys',
-    icon: `${iconPath}Skeleton_Key.png`,
+    icon: _ => `${iconPath}Skeleton_Key.png`,
     cost: 200,
     stack: 6,
   },
   holyWaters: {
     label: 'Holy Waters',
-    icon: `${iconPath}Holy_Water.png`,
+    icon: _ => `${iconPath}Holy_Water.png`,
     cost: 150,
     stack: 6,
   },
   torches: {
     label: 'Torches',
-    icon: `${iconPath}Torch.png`,
+    icon: _ => `${iconPath}Torch.png`,
     cost: 75,
     stack: 8,
   },

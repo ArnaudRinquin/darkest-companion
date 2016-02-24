@@ -31,8 +31,8 @@ function stacks(quantity, stackSize) {
 
 function renderProvisionStack(provision, quantity, index) {
   return <div className="provision-item" key={`provision-${provision.label}-${index}`}>
-    <img className='provision-icon' src={provision.icon} alt={provision.label}/>
-    <div className='provision-quantity'>{quantity}</div>
+    <img className='provision-icon' src={provision.icon(quantity)} alt={provision.label}/>
+    <div className='provision-quantity'>{quantity > 1 ? quantity : ''}</div>
   </div>
 }
 
