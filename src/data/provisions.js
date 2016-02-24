@@ -11,7 +11,7 @@ const provisions = {
   },
   food: {
     label: 'Food',
-    icon: `${iconPath}Food.gif`,
+    icon: `${iconPath}Food.png`,
     cost: 75,
     stack: 12,
   },
