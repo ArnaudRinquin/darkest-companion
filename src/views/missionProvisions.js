@@ -15,12 +15,30 @@ const types = [
   'torches',
 ];
 
-function renderProvision(provision) {
-  if (!provision.quantity) return null;
-  return <div className="provision-item" key={`provision-${provision.label}`}>
+function stacks(quantity, stackSize) {
+  const stacks = [];
+  const rest = quantity % stackSize;
+  for(let i = stackSize ; i < quantity ; i += stackSize) {
+    stacks.push(stackSize);
+  }
+  if (rest) {
+    stacks.push(rest);
+  } else {
+    stacks.push(stackSize);
+  }
+  return stacks;
+}
+
+function renderProvisionStack(provision, quantity, index) {
+  return <div className="provision-item" key={`provision-${provision.label}-${index}`}>
     <img className='provision-icon' src={provision.icon} alt={provision.label}/>
-    <div className='provision-quantity'>{provision.quantity}</div>
+    <div className='provision-quantity'>{quantity}</div>
   </div>
+}
+
+function renderProvisionStacks(provision) {
+  return stacks(provision.quantity, provision.stack)
+    .map(renderProvisionStack.bind(null, provision));
 }
 
 export function MissionProvisions({selectedLocation, selectedLength}) {
@@ -29,7 +47,17 @@ export function MissionProvisions({selectedLocation, selectedLength}) {
   return <section className="level-provisions centered">
     <h1>Provisions</h1>
     <div className='provisions-list'>
-      {types.map(type => renderProvision(provisions[type]))}
+      {types.reduce((rendered, type) => {
+
+        const provision = provisions[type];
+
+        if (!provision.quantity) return rendered;
+
+        return [
+          ...rendered,
+          ...renderProvisionStacks(provision),
+        ]
+      }, [])}
     </div>
     <div className='provisions-total'>
       <span className='provisions-total-label'>Total Cost:</span>
