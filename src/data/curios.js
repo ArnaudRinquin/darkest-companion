@@ -61,6 +61,9 @@ const outcomeTypes = {
   goldFoodTrinket: {
     label: 'Gold, food or trinket',
   },
+  goldFoodSupply: {
+    label: 'Gold, food or supplies',
+  },
   goldGemsTrinket: {
     label: 'Gold, gems or trinket',
   },
@@ -917,6 +920,48 @@ const curiosPerLocation = {
               chances: 100,
               type: outcomeTypes.goldFoodTrinket,
               amount: 2,
+            },
+          ],
+        },
+      ]
+    },
+    {
+      name: 'Moonshine Barrel',
+      icon: `${iconPath}moonshine_barrel.png`,
+      description: 'A barrel that reeks of powerful liquors.',
+      options: [
+        {
+          activator: activators.nothing,
+          outcomes: [
+            {
+              chances: 33.3,
+              type: outcomeTypes.goldFoodSupply,
+              amount: 1,
+            },
+            {
+              chances: 33.3,
+              type: outcomeTypes.blight,
+            },
+            {
+              chances: 11.1,
+              type: outcomeTypes.disease('Alcoholism'),
+            },
+            {
+              chances: 22.2,
+              type: outcomeTypes.nothing,
+            },
+          ],
+        },
+        {
+          activator: activators.medicinalHerb,
+          outcomes: [
+            {
+              chances: 100,
+              type: outcomeTypes.buff([{
+                type: 'DMG',
+                amount: 30,
+                percent: true,
+              }], true),
             },
           ],
         },
