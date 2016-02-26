@@ -76,6 +76,9 @@ const outcomeTypes = {
   goldGemsHeirloomsSupplies: {
     label: 'Gold, gems, heirlooms or supplies',
   },
+  specialTrinketOrPuzzlingTrapezohdron: {
+    label: 'Special trinket or Puzzling Trapezohedron',
+  },
   addStress(amount) {
     return {
       label: `Stress +${amount}`,
@@ -175,6 +178,32 @@ const activators = {
 const iconPath = './icons/curios/';
 
 const universalCurios = [
+  {
+    name: 'Ancient Artifact',
+    icon: `${iconPath}ancient_artifact.png`,
+    options: [
+      {
+        activator: activators.nothing,
+        outcomes: [
+          {
+            chances: 100,
+            type: outcomeTypes.goldGems,
+            amount: 2.5,
+          },
+        ],
+      },
+      {
+        activator: activators.skeletonKey,
+        outcomes: [
+          {
+            chances: 100,
+            type: outcomeTypes.specialTrinketOrPuzzlingTrapezohdron,
+            amount: 3,
+          },
+        ],
+      },
+    ],
+  },
   {
     name: 'Crate',
     icon: `${iconPath}crate.png`,
