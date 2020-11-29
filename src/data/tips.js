@@ -71,11 +71,11 @@ const tips = {
     effective: [
       {
         label: 'Bandages',
-        details: 'Many curios + ennemies inflicting bleeds',
+        details: 'Many curios + enemies inflicting bleeds',
       },
       {
         label: 'Antivenom',
-        details: 'Many curios + ennemies inflicting blights',
+        details: 'Many curios + enemies inflicting blights',
       },
       {
         label: 'Shovels',
@@ -114,7 +114,7 @@ const tips = {
       },
       {
         label: 'Bandages',
-        details: 'Many bleed dealing ennemies',
+        details: 'Many bleed dealing enemies',
       },
       {
         label: 'Blight',
