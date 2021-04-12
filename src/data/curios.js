@@ -47,7 +47,7 @@ const outcomeTypes = {
     label: 'Gold, gems or heirlooms',
   },
   goldHeirlooms: {
-    label: 'Gold or heirloooms',
+    label: 'Gold or heirlooms',
   },
   goldSuppliesHeirlooms: {
     label: 'Gold, supplies or heirloooms',
