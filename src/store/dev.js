@@ -1,6 +1,6 @@
 'use strict';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistStore, autoRehydrate } from 'redux-persist';
+import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import reducer from '../reducer';
 import devtools from '../components/devtools';
@@ -10,7 +10,6 @@ export function createNewStore(initialState) {
     reducer,
     compose(
       applyMiddleware(thunk),
-      autoRehydrate(),
       devtools.instrument()
     )
   )
