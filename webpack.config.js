@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  mode: "development",
   entry: [
     './src/index.js'
   ],
@@ -11,29 +12,33 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: process.env.NODE_ENV !== 'production' ? ['react-hot', 'babel'] : ['babel'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
       }
     ]
   },
   devServer: {
-    contentBase: "./public",
-    noInfo: true,
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
     hot: true,
-    inline: true
+    open: true,
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'dev')
-      }
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })
   ]
 };
