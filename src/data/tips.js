@@ -122,11 +122,11 @@ const tips = {
       },
       {
         label: 'Prot debuff',
-        details: 'Ennemies with high PROT',
+        details: 'Enemies with high PROT',
       },
       {
         label: 'Occultist',
-        details: 'Ennemies mostly Eldritch',
+        details: 'Enemies mostly Eldritch',
       },
     ],
     ineffective: [
