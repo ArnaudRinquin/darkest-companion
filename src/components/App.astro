@@ -118,7 +118,7 @@ const tipCategories = [
             <label class="torch">
               <input type="radio" name="length" id={`length-${l}`} value={l} checked={l === DEFAULT_LENGTH} />
               <span class="torch-icon" aria-hidden="true" />
-              <span class="torch-label">{l}</span>
+              <span class="torch-label" data-text={l}>{l}</span>
             </label>
           ))
         }
@@ -135,7 +135,7 @@ const tipCategories = [
                 <label class="torch" title={m.label}>
                   <input type="radio" name={`mode-${r.id}`} id={`mode-${r.id}-${m.id}`} value={m.id} checked={i === 0} />
                   <span class="torch-icon" aria-hidden="true" />
-                  <span class="torch-label">{m.short}</span>
+                  <span class="torch-label" data-text={m.short}>{m.short}</span>
                 </label>
               ))}
             </div>

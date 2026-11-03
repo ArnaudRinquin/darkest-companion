@@ -1187,3 +1187,19 @@ img {
   filter: drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95)) drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95))
     drop-shadow(0 0 7px rgb(255 140 40 / 0.6));
 }
+
+/* Bold when selected without layout shift: an invisible bold copy reserves the width. */
+.length-group .torch-label,
+.mode-group .torch-label {
+  display: inline-grid;
+}
+.length-group .torch-label::after,
+.mode-group .torch-label::after {
+  content: attr(data-text);
+  font-weight: 600;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
