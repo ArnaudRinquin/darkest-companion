@@ -1,7 +1,8 @@
+import { DLC_TIPS } from './tips.dlc';
 import type { RegionId, RegionTips } from './types';
 
 // v1 tips, community-written. Typos fixed (Ennemies).
-export const TIPS: Partial<Record<RegionId, RegionTips>> = {
+const BASE_TIPS: Partial<Record<RegionId, RegionTips>> = {
   ruins: {
     effective: [
       {
@@ -150,3 +151,5 @@ export const TIPS: Partial<Record<RegionId, RegionTips>> = {
     ]
   },
 };
+
+export const TIPS: Partial<Record<RegionId, RegionTips>> = { ...BASE_TIPS, ...DLC_TIPS };

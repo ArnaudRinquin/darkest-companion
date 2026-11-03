@@ -142,11 +142,25 @@ const fixes: Record<string, Fix> = {
   }),
 };
 
+// v1 label typos, fixed everywhere.
+const TYPOS: [RegExp, string][] = [
+  [/herlooms/g, 'heirlooms'],
+  [/heirloooms/g, 'heirlooms'],
+  [/^random disease$/, 'Random disease'],
+];
+const cleanLabels = (c: Curio): Curio => ({
+  ...c,
+  options: c.options.map((o) => ({
+    ...o,
+    outcomes: o.outcomes.map((x) => ({ ...x, label: TYPOS.reduce((l, [re, to]) => l.replace(re, to), x.label) })),
+  })),
+});
+
 export const CURIOS: Curio[] = [
   ...legacyCurios.flatMap((c) => {
-    if (!(c.id in fixes)) return [c];
+    if (!(c.id in fixes)) return [cleanLabels(c)];
     const f = fixes[c.id];
-    return f ? [f(c)] : [];
+    return f ? [cleanLabels(f(c))] : [];
   }),
   ...dlcCurios,
 ];

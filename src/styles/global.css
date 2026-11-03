@@ -503,3 +503,345 @@ img {
   min-width: 0;
   overflow-wrap: anywhere;
 }
+
+/* ---------- UX pass ---------- */
+
+/* Region tiles: signature curio, unlit until chosen (like the game's torches). */
+.region-ruins { --accent: #8b9bb0; }
+.region-warrens { --accent: #c0705a; }
+.region-weald { --accent: #8fb05a; }
+.region-cove { --accent: #4fb3b0; }
+.region-courtyard { --accent: #d0453a; }
+.region-farmstead { --accent: #5fd8d0; }
+
+.region-options {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+.region-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  padding: 6px 4px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: border-color 0.15s, background 0.15s;
+}
+.region-tile input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.region-art {
+  width: 100%;
+  max-width: 72px;
+  height: 52px;
+  object-fit: contain;
+  filter: grayscale(0.75) brightness(0.62);
+  transition: filter 0.2s, transform 0.2s;
+}
+.region-tile:hover .region-art {
+  filter: grayscale(0.4) brightness(0.75);
+}
+.region-tile:has(input:checked) {
+  border-color: var(--accent);
+  background: radial-gradient(ellipse at 50% 100%, color-mix(in srgb, var(--accent) 28%, transparent), var(--bg-panel) 75%);
+  color: var(--gold);
+}
+.region-tile:has(input:checked) .region-art {
+  filter: none;
+  transform: translateY(-1px) scale(1.04);
+}
+.region-tile:has(input:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+@media (min-width: 720px) {
+  .region-group legend {
+    line-height: 1.6;
+    float: none;
+    width: auto;
+    margin-bottom: 2px;
+  }
+  .region-options {
+    grid-template-columns: repeat(6, 84px);
+  }
+}
+
+/* Section jump links (phones only). */
+.jump {
+  display: none;
+}
+
+/* Activator: sprite + name, so new players don't need to know the art. */
+.option {
+  grid-template-columns: 5.6em 1fr;
+}
+.activator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+.activator img {
+  width: 20px;
+  height: 40px;
+  object-fit: contain;
+}
+.option[data-activator='nothing'] .activator img {
+  width: 26px;
+  height: 26px;
+  margin: 7px 0;
+}
+.activator-label {
+  font-size: 0.7rem;
+  line-height: 1.1;
+  color: var(--muted);
+}
+
+/* Outcome tone: color + glyph (works without color). */
+.outcome {
+  grid-template-columns: 1em 3.4em 1fr;
+  --bar: rgb(201 181 105 / 0.14);
+  background: linear-gradient(90deg, var(--bar) var(--p), transparent var(--p));
+}
+.glyph {
+  font-size: 0.7rem;
+  align-self: center;
+  color: var(--muted);
+}
+.tone-good { --bar: rgb(127 163 90 / 0.22); }
+.tone-bad { --bar: rgb(194 71 58 / 0.22); }
+.tone-good .glyph, .legend .tone-good { color: var(--good); }
+.tone-bad .glyph, .legend .tone-bad { color: var(--bad); }
+
+/* Curio tools: search + "I have" chips. */
+.curio-tools {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.search input {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.search input:focus {
+  border-color: var(--gold-dim);
+  outline: none;
+}
+.item-chips {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.item-chips legend {
+  padding: 0;
+  margin-bottom: 4px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.chips-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px;
+}
+.chip,
+.torch,
+.region-tile {
+  position: relative;
+}
+.chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  min-height: 34px;
+}
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.chip img {
+  width: 12px;
+  height: 24px;
+}
+.chip:has(input:checked) {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgb(201 181 105 / 0.1);
+}
+.chip:has(input:focus-visible) {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.no-match {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0;
+}
+.curio[hidden],
+.curio-group.empty {
+  display: none;
+}
+/* Highlight the option that uses the chosen item. */
+.option.match {
+  box-shadow: inset 0 0 0 1px var(--gold-dim);
+}
+
+@media (max-width: 719px) {
+  .masthead {
+    padding: 12px 0 0;
+  }
+  .logo {
+    width: 180px;
+  }
+  .tagline {
+    font-size: 0.8rem;
+  }
+  .picker {
+    gap: 6px;
+  }
+  .region-tile {
+    padding: 4px 2px 3px;
+    font-size: 0.68rem;
+  }
+  .region-art {
+    height: 34px;
+  }
+  /* lengths: small torches in one compact row */
+  .length-group .torch-options {
+    grid-auto-columns: auto;
+    justify-content: start;
+    gap: 14px;
+  }
+  .length-group .torch {
+    flex-direction: row;
+    gap: 4px;
+    font-size: 0.8rem;
+  }
+  .length-group .torch-icon {
+    width: 19px;
+    height: 22px;
+    background-size: 38px auto;
+    background-position: -19px -4px;
+  }
+  .length-group .torch input:checked + .torch-icon {
+    background-position: 0 -4px;
+  }
+  .length-note {
+    min-height: 0;
+    font-size: 0.75rem;
+  }
+  .jump {
+    display: flex;
+    gap: 16px;
+    font-size: 0.8rem;
+  }
+  /* Phones: curios right after provisions, tips last. */
+  .side {
+    display: contents;
+  }
+  .provisions { order: 1; }
+  .curios { order: 2; }
+  .tips { order: 3; }
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  [id$='-title'] {
+    scroll-margin-top: 150px;
+  }
+}
+
+/* DLC quest/mode picker + loadout basis */
+.mode-group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mode-group legend {
+  float: left;
+  font-family: var(--display);
+  color: var(--gold);
+  font-size: 1.1rem;
+  padding: 0;
+}
+.basis {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.basis strong {
+  font-weight: 600;
+}
+.basis-community strong { color: var(--good); }
+.basis-estimate strong { color: var(--warn); }
+.why {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.why summary {
+  color: var(--gold);
+  cursor: pointer;
+}
+.why p, .why ul {
+  margin: 6px 0;
+}
+.total-note {
+  font-family: system-ui, sans-serif;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.tip-src {
+  text-decoration: none;
+  font-size: 0.75rem;
+  margin-left: 2px;
+}
+.mode-group .chips-row {
+  flex-wrap: wrap;
+}
+@media (max-width: 719px) {
+  .mode-group {
+    align-items: flex-start;
+  }
+  .mode-group legend {
+    font-size: 0.95rem;
+    line-height: 34px;
+  }
+  .mode-group .chip {
+    min-height: 30px;
+    padding: 2px 9px;
+  }
+}

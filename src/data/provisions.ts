@@ -12,11 +12,13 @@ export const PROVISIONS: Record<ProvisionId, { label: string; cost: number; stac
   holyWaters: { label: 'Holy Waters', cost: 150, stack: 6, icon: 'provisions/Holy_Water.png' },
   torches: { label: 'Torches', cost: 75, stack: 8, icon: 'provisions/Torch.png' },
   laudanum: { label: 'Laudanum', cost: 100, stack: 6, icon: 'provisions/Laudanum.png' },
+  // Can't be bought: looted, or 2/week from the Sanguine Vintners district (wiki: Provisions).
+  theBlood: { label: 'The Blood', cost: 0, stack: 6, icon: 'provisions/The_Blood.png' },
 };
 
 /** Inventory display order (v1 order). */
 export const PROVISION_ORDER: ProvisionId[] = [
-  'firewood', 'food', 'shovels', 'antivenoms', 'bandages', 'herbs', 'keys', 'holyWaters', 'torches', 'laudanum',
+  'firewood', 'food', 'shovels', 'antivenoms', 'bandages', 'herbs', 'keys', 'holyWaters', 'torches', 'laudanum', 'theBlood',
 ];
 
 type Loadout = Partial<Record<ProvisionId, number>>;

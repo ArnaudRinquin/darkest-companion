@@ -26,7 +26,7 @@ const visibleTitles = (page) =>
   await page.goto(url);
   check('v1 region restored', await page.isChecked('#region-cove'));
   check('v1 length restored', await page.isChecked('#length-medium'));
-  check('only cove curios', JSON.stringify(await visibleTitles(page)) === '["Cove curios","Found in every base region","Special & quest curios"]', JSON.stringify(await visibleTitles(page)));
+  check('only cove curios', JSON.stringify(await visibleTitles(page)) === '["Cove curios","Common curios (all base regions)","Special & quest curios"]', JSON.stringify(await visibleTitles(page)));
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   check('no horizontal scroll on mobile', overflow <= 0, `(${overflow}px)`);
   if (shots) await page.screenshot({ path: `${shots}/mobile.png`, fullPage: false });
@@ -41,6 +41,23 @@ const visibleTitles = (page) =>
   await page.goto(url);
   check('v2 restored after reload', await page.isChecked('#region-warrens'));
   check('visible loadout matches', (await page.$$eval('.loadout', (ls) => ls.filter((l) => l.offsetParent).length)) === 1);
+  await ctx.close();
+}
+
+// 2b. search + item filter
+{
+  const ctx = await browser.newContext(devices['iPhone 13']);
+  const page = await ctx.newPage();
+  await page.goto(url + '#weald/short');
+  const visible = () => page.$$eval('.curio', (cs) => cs.filter((c) => c.offsetParent).map((c) => c.dataset.name));
+  await page.fill('#curio-search', 'tree');
+  check('search filters', JSON.stringify(await visible()) === '["old tree"]', JSON.stringify(await visible()));
+  await page.fill('#curio-search', '');
+  await page.click('label.chip:has(input[value="shovel"])');
+  const shovel = await visible();
+  check('item filter keeps only shovel curios', shovel.length > 0 && (await page.$$eval('.curio', (cs) => cs.filter((c) => c.offsetParent).every((c) => c.dataset.items.split(' ').includes('shovel')))), JSON.stringify(shovel));
+  await page.fill('#curio-search', 'zzz');
+  check('no-match message', await page.isVisible('.no-match'));
   await ctx.close();
 }
 

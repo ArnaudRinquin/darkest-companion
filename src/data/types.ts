@@ -26,7 +26,8 @@ export type ProvisionId =
   | 'keys'
   | 'holyWaters'
   | 'torches'
-  | 'laudanum';
+  | 'laudanum'
+  | 'theBlood';
 
 export interface Outcome {
   /** Percent, 0-100. */
@@ -72,6 +73,7 @@ export interface Region {
 export interface Tip {
   label: string;
   details: string;
+  source?: string;
 }
 
 export interface RegionTips {
