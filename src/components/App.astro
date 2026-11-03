@@ -173,10 +173,10 @@ const tipCategories = [
                 <div data-region={r.id}>
                   {modes.map((m) => (
                     <div class="loadout" data-mode={`${m.region}:${m.id}`}>
+                      <Inventory loadout={m.items} label={`Suggested provisions, ${m.label}`} />
                       <p class={`basis basis-${m.basis}`}>
                         <strong>{m.basis === 'community' ? 'Community suggestion' : 'Estimate'}</strong> · {m.label}
                       </p>
-                      <Inventory loadout={m.items} label={`Suggested provisions, ${m.label}`} />
                       <details class="why">
                         <summary>Why these numbers?</summary>
                         {m.notes.map((n) => (

@@ -1348,3 +1348,6 @@ img {
   height: 100%;
   object-fit: cover;
 }
+.basis {
+  margin: 6px 0 0;
+}
