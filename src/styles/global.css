@@ -1298,3 +1298,53 @@ img {
     min-height: 112px;
   }
 }
+/* Inventory scales down on very narrow screens (8 slots of 40x80 at full size). */
+.inventory {
+  width: 100%;
+  max-width: 321px;
+  min-height: 0;
+  aspect-ratio: 321 / 160;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: auto;
+  background-size: 100% 100%;
+}
+.slot {
+  aspect-ratio: 1 / 2;
+}
+.slot img {
+  width: 100%;
+  height: auto;
+}
+/* Torch never shrinks; long labels give way instead. */
+.length-group .torch-icon,
+.mode-group .torch-icon {
+  flex: 0 0 auto;
+}
+.length-group .torch-label,
+.mode-group .torch-label {
+  min-width: 0;
+}
+
+/* Curio art: same treatment as the lit torch, a faint gold edge + soft glow so dark sprites read on dark cards. */
+.curio-icon {
+  filter: drop-shadow(0 0 0.6px rgb(201 181 105 / 0.7)) drop-shadow(0 0 0.6px rgb(201 181 105 / 0.5))
+    drop-shadow(0 0 10px rgb(201 181 105 / 0.18));
+}
+/* Slots: exactly 1/8 of the inventory, never sized by the image's natural width. */
+.inventory {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 0;
+  overflow: hidden;
+}
+.slot {
+  min-width: 0;
+  aspect-ratio: auto;
+  overflow: hidden;
+}
+.slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
