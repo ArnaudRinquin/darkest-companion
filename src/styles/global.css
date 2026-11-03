@@ -1203,3 +1203,98 @@ img {
   user-select: none;
   pointer-events: none;
 }
+
+/* ---------- Stable picker: Length / Quest / Mode share one fixed slot ---------- */
+.picker {
+  display: grid;
+  grid-template-columns: auto 330px;
+  column-gap: 40px;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: start;
+}
+.picker > .region-group {
+  grid-column: 1;
+  grid-row: 1;
+}
+.picker > .length-group,
+.picker > .mode-group {
+  grid-column: 2;
+  grid-row: 1;
+  /* legend + two rows of torches: tallest case (Courtyard's 6 quests), so switching never resizes */
+  min-height: 112px;
+}
+.length-group .torch-options,
+.mode-group .torch-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px 10px;
+}
+.length-group .torch,
+.mode-group .torch {
+  min-width: 0;
+}
+.length-group .torch-label,
+.mode-group .torch-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 719px) {
+  .picker {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .picker > .length-group,
+  .picker > .mode-group {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 106px;
+  }
+}
+@media (max-width: 999px) {
+  .picker {
+    grid-template-columns: minmax(0, max-content);
+  }
+  .picker > .length-group,
+  .picker > .mode-group {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 100px;
+  }
+  .length-group .torch-options,
+  .mode-group .torch-options {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(3, minmax(0, 150px));
+  }
+}
+@media (max-width: 719px) {
+  .picker {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .length-group .torch-options,
+  .mode-group .torch-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* Long outcome labels must wrap, not stretch the grid (1fr = minmax(auto,1fr) would). */
+.option {
+  grid-template-columns: 5.6em minmax(0, 1fr);
+}
+.outcome {
+  grid-template-columns: 1em 3.4em minmax(0, 1fr);
+}
+.outcome .label {
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+@media (max-width: 719px) {
+  .option {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 999px) {
+  .picker > .length-group,
+  .picker > .mode-group {
+    min-height: 112px;
+  }
+}

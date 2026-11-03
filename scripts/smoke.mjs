@@ -61,6 +61,23 @@ const visibleTitles = (page) =>
   await ctx.close();
 }
 
+// 2c. picker height doesn't change between regions (no layout shift)
+for (const vp of [{ width: 1280, height: 800 }, { width: 820, height: 900 }, devices['iPhone SE'].viewport]) {
+  const ctx = await browser.newContext({ viewport: vp });
+  const page = await ctx.newPage();
+  await page.goto(url);
+  const heights = new Set();
+  for (const r of ['ruins', 'warrens', 'weald', 'cove', 'courtyard', 'farmstead']) {
+    const tile = await page.$(`label:has(#region-${r})`);
+    if (!tile) continue;
+    await tile.click();
+    heights.add(await page.$eval('.picker', (e) => e.offsetHeight));
+  }
+  check(`stable picker height @${vp.width}px`, heights.size === 1, JSON.stringify([...heights]));
+  check(`no horizontal scroll @${vp.width}px`, (await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)) <= 0);
+  await ctx.close();
+}
+
 // 3. region page pins the region; keyboard works
 {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
