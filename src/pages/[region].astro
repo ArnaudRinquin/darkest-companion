@@ -3,6 +3,7 @@ import App from '../components/App.astro';
 import Base from '../layouts/Base.astro';
 import { REGIONS } from '../data/regions';
 import type { Region } from '../data/types';
+import { existsSync } from 'node:fs';
 import { appLd, regionCurioNames } from '../lib/seo';
 
 export function getStaticPaths() {
@@ -16,6 +17,8 @@ const description = `Darkest Dungeon ${region.label} curios: what to use on ${na
 const url = new URL(`${import.meta.env.BASE_URL}${region.id}/`, Astro.site).href;
 ---
 
-<Base title={title} description={description} path={`${region.id}/`} jsonLd={[appLd(url, description)]}>
+<Base title={title} description={description} path={`${region.id}/`} jsonLd={[appLd(url, description)]}
+  ogImage={existsSync(`public/og/${region.id}.png`) ? `${region.id}.png` : undefined}
+>
   <App pinnedRegion={region.id} />
 </Base>

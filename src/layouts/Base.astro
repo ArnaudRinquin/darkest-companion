@@ -7,12 +7,14 @@ interface Props {
   /** Path relative to base, e.g. '' or 'weald/'. */
   path: string;
   jsonLd?: Record<string, unknown>[];
+  /** File in public/og/ (rendered by scripts/images.sh). */
+  ogImage?: string;
 }
 
-const { title, description, path, jsonLd = [] } = Astro.props;
+const { title, description, path, jsonLd = [], ogImage: og = 'og.png' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const canonical = new URL(base + path, Astro.site).href;
-const ogImage = new URL(base + 'og/og.png', Astro.site).href;
+const ogImage = new URL(base + 'og/' + og, Astro.site).href;
 ---
 
 <!doctype html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<!--
+  Source for the social images. Rendered by scripts/images.sh with headless Chrome.
+  Query params: ?size=og (1200x630, default) | social (1280x640, GitHub) ; &region=<id> for region pages.
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: 'DwarvenAxe'; src: url('../public/fonts/3073CA_0_0.woff2') format('woff2'); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    width: var(--w); height: var(--h); overflow: hidden;
+    background: #151311 radial-gradient(ellipse 70% 80% at 50% 0%, #3a2c1d 0%, #1d1915 55%, #110f0d 100%);
+    color: #c4bdb0; font-family: system-ui, -apple-system, sans-serif;
+    display: grid; grid-template-rows: auto auto 1fr auto; justify-items: center;
+    padding: 44px 64px 36px; position: relative;
+  }
+  body::after { /* vignette */
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    box-shadow: inset 0 0 160px 40px rgba(0,0,0,.85);
+  }
+  .logo { width: 520px; filter: drop-shadow(0 4px 24px rgba(230, 120, 30, .25)); }
+  .logo-text { /* logo text is near-black; brighten it on the card */ }
+  h1 {
+    font-family: 'DwarvenAxe', serif; font-weight: normal; color: #c9b569;
+    font-size: 64px; margin: 6px 0 0; letter-spacing: .02em; text-shadow: 0 2px 0 #000;
+  }
+  p.sub { margin: 6px 0 0; font-size: 26px; color: #a49c8e; }
+  .row { display: flex; gap: 26px; align-items: flex-end; align-self: center; }
+  .row img { height: 104px; filter: drop-shadow(0 6px 10px #000); }
+  .bottom { display: flex; width: 100%; justify-content: space-between; align-items: center; font-size: 22px; color: #8e877b; z-index: 1; }
+  .items { display: flex; }
+  .items img { width: 34px; height: 68px; }
+  .url { font-family: 'DwarvenAxe', serif; color: #c9b569; font-size: 30px; }
+</style>
+</head>
+<body>
+  <img class="logo" src="../public/logo.png" alt="" />
+  <div style="text-align:center">
+    <h1 id="title">Curios &amp; Provisions</h1>
+    <p class="sub" id="sub">What to use on every curio, and what to bring, for every region.</p>
+  </div>
+  <div class="row" id="row"></div>
+  <div class="bottom">
+    <div class="items" id="items"></div>
+    <div class="url">arnaud.rocks/darkest-companion</div>
+  </div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const [w, h] = q.get('size') === 'social' ? [1280, 640] : [1200, 630];
+  document.body.style.setProperty('--w', w + 'px');
+  document.body.style.setProperty('--h', h + 'px');
+  const C = '../public/icons/curios/';
+  const REGIONS = {
+    all: { title: 'Curios & Provisions', icons: ['alchemy_table', 'beast_carcass', 'eldritch_alter', 'giant_oyster', 'iron_maiden'] },
+    ruins: { title: 'Ruins Curios', icons: ['alchemy_table', 'iron_maiden', 'confession_booth', 'holy_fountain', 'suit_of_armor'] },
+    warrens: { title: 'Warrens Curios', icons: ['dinner_cart', 'bone_altar', 'moonshine_barrel', 'rack_of_blades', 'sacrificial_stone'] },
+    weald: { title: 'Weald Curios', icons: ['ancient_coffin', 'beast_carcass', 'old_tree', 'pristine_fountain', 'travelers_tent'] },
+    cove: { title: 'Cove Curios', icons: ['giant_oyster', 'fish_idol', 'eerie_coral', 'ships_figurehead', 'bas_relief'] },
+  };
+  const r = REGIONS[q.get('region')] || REGIONS.all;
+  document.getElementById('title').textContent = r.title + (q.get('region') ? ' & Provisions' : '');
+  if (q.get('region')) document.getElementById('sub').textContent = 'Item interactions, outcome odds and what to pack.';
+  document.getElementById('row').innerHTML = r.icons.map((i) => `<img src="${C}${i}.png" alt="">`).join('');
+  const P = '../public/icons/provisions/';
+  document.getElementById('items').innerHTML = ['Torch', 'Food_3', 'Shovel', 'Bandage', 'Antivenom', 'Medicinal_Herbs', 'Holy_Water', 'Skeleton_Key']
+    .map((i) => `<img src="${P}${i}.png" alt="">`).join('');
+</script>
+</body>
+</html>
