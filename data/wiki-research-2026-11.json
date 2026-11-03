@@ -1,0 +1,1169 @@
+{
+ "curios": [
+  {
+   "id": "pile-of-strange-bones",
+   "name": "Pile of Strange Bones",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "A heap of peculiar bones and dusty sinew litters the floor.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Pile_of_Strange_Bones.png?6a6e59",
+   "options": [
+    {
+     "activator": "bandage",
+     "outcomes": [
+      {
+       "chance": 50,
+       "label": "Any loot",
+       "amount": 1
+      },
+      {
+       "chance": 50,
+       "label": "The Blood"
+      }
+     ]
+    },
+    {
+     "activator": "other:theBlood",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Fight: Supplicant, Sycophant, Esquire"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 50,
+       "label": "Bleed"
+      },
+      {
+       "chance": 20,
+       "label": "Any loot + 16.7% The Blood",
+       "amount": 2
+      },
+      {
+       "chance": 10,
+       "label": "Crimson Curse"
+      },
+      {
+       "chance": 20,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor"
+  },
+  {
+   "id": "bloodflowers",
+   "name": "Bloodflowers",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "The soil is soaked through with half-clotted blood which seemingly feeds these vital blooms.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Bloodflowers.png?426d38",
+   "options": [
+    {
+     "activator": "shovel",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Heirlooms x2 + any loot x1"
+      }
+     ]
+    },
+    {
+     "activator": "holyWater",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress +15"
+      }
+     ]
+    },
+    {
+     "activator": "other:theBlood",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Nothing"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 38.5,
+       "label": "Stress +15"
+      },
+      {
+       "chance": 23.1,
+       "label": "Scouting"
+      },
+      {
+       "chance": 15.3,
+       "label": "Any loot + 16.7% The Blood",
+       "amount": 2
+      },
+      {
+       "chance": 5.1,
+       "label": "Tetanus disease"
+      },
+      {
+       "chance": 2.5,
+       "label": "Random disease"
+      },
+      {
+       "chance": 15.3,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "anywhere",
+   "unsure": "By-hand odds sum to 99.8% (wiki rounding)."
+  },
+  {
+   "id": "damned-fountain",
+   "name": "Damned Fountain",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "A bubbling fountain spews crimson ichor from some damnable source.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Damned_Fountain.png?94b5fd",
+   "options": [
+    {
+     "activator": "holyWater",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress heal 30"
+      }
+     ]
+    },
+    {
+     "activator": "torch",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress +5"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 60,
+       "label": "Bleed"
+      },
+      {
+       "chance": 20,
+       "label": "Crimson Curse"
+      },
+      {
+       "chance": 20,
+       "label": "Any loot + 16.7% Bleed",
+       "amount": 2
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor",
+   "unsure": "Wiki loot row says 'Any Loot x2 + 16.7% Bleed'; may be a typo for The Blood (other Courtyard curios use '+16.7% The Blood'). Kept as written."
+  },
+  {
+   "id": "disturbing-diversion",
+   "name": "Disturbing Diversion",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "Mouldering evidence of a society's depravity.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Disturbing_Diversion.png?876808",
+   "options": [
+    {
+     "activator": "shovel",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Heirlooms",
+       "amount": 3
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 40,
+       "label": "Stress +25"
+      },
+      {
+       "chance": 15,
+       "label": "Random positive quirk"
+      },
+      {
+       "chance": 15,
+       "label": "Random negative quirk"
+      },
+      {
+       "chance": 10,
+       "label": "Any loot x2 + 16.7% The Blood x2"
+      },
+      {
+       "chance": 20,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor"
+  },
+  {
+   "id": "forgotten-delicacies",
+   "name": "Forgotten Delicacies",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "An anachronistic mixture of both rotted and fresh victuals adorn the cart.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Forgotten_Delicacies.png?f2a493",
+   "options": [
+    {
+     "activator": "medicinalHerb",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Food x2 + gold/supplies x1"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 20,
+       "label": "Gold/supplies x4 + supplies x1 + 25% The Blood"
+      },
+      {
+       "chance": 20,
+       "label": "Negative quirk: Stress Eater"
+      },
+      {
+       "chance": 20,
+       "label": "Blight"
+      },
+      {
+       "chance": 13.3,
+       "label": "Crimson Curse"
+      },
+      {
+       "chance": 6.7,
+       "label": "Random disease"
+      },
+      {
+       "chance": 20,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor"
+  },
+  {
+   "id": "hooded-shrew",
+   "name": "Hooded Shrew",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "A mysterious figure, not fully human, not fully insect, kneels here on the ground.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Hooded_Shrew.png?9ebcbd",
+   "options": [
+    {
+     "activator": "other:theBlood",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Non-set trinkets",
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 42.8,
+       "label": "Stress +15"
+      },
+      {
+       "chance": 28.5,
+       "label": "Any loot",
+       "amount": 1
+      },
+      {
+       "chance": 7.6,
+       "label": "Random disease"
+      },
+      {
+       "chance": 14.2,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor or treasure room",
+   "unsure": "Wiki by-hand odds sum to 93.1%; an outcome (~6.9%) is likely missing on the wiki."
+  },
+  {
+   "id": "throbbing-cocoons",
+   "name": "Throbbing Cocoons",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "Shifting and bulging organisms hide behind translucent walls.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Throbbing_Cocoons.png?b9c7ca",
+   "options": [
+    {
+     "activator": "torch",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress heal 30"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 75,
+       "label": "Fight: Supplicant, Sycophant, Esquire"
+      },
+      {
+       "chance": 12.5,
+       "label": "Any loot + 16.7% The Blood",
+       "amount": 3
+      },
+      {
+       "chance": 12.5,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor"
+  },
+  {
+   "id": "thronging-hive",
+   "name": "Thronging Hive",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "The hive is twisted and unnatural - the work of cursed vermin.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Thronging_Hive.png?d42afc",
+   "options": [
+    {
+     "activator": "torch",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Any loot + 16.7% The Blood",
+       "amount": 3
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 75,
+       "label": "Any loot + 20% The Blood",
+       "amount": 2
+      },
+      {
+       "chance": 25,
+       "label": "Bleed"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor"
+  },
+  {
+   "id": "wine-crate",
+   "name": "Wine Crate",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "You can see that some of the bottles are still intact.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Wine_Crate.png?2d019b",
+   "options": [
+    {
+     "activator": "shovel",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Firewood"
+      }
+     ]
+    },
+    {
+     "activator": "antivenom",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress heal 30"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 41.7,
+       "label": "The Blood (33.3%) x2 + any loot x1 + gold/supplies x4"
+      },
+      {
+       "chance": 16.7,
+       "label": "Crimson Curse"
+      },
+      {
+       "chance": 16.7,
+       "label": "Negative quirk: Tippler"
+      },
+      {
+       "chance": 8.3,
+       "label": "Scouting"
+      },
+      {
+       "chance": 8.3,
+       "label": "Bleed"
+      },
+      {
+       "chance": 8.3,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/The_Courtyard"
+   ],
+   "where": "corridor",
+   "unsure": "Shovel result is 'Firewood' per wiki data but its flavor text says 'Smashing the bottles reveals treasure!'; Courtyard page confirms Wine Crate is the only Courtyard firewood source (with shovel)."
+  },
+  {
+   "id": "wizened-shrew",
+   "name": "Wizened Shrew",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "This appears to be an elderly but shunned member of this damned court.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Wizened_Shrew.png?9f32ec",
+   "options": [
+    {
+     "activator": "other:theBlood",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Non-set trinkets",
+       "amount": 3
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 33.3,
+       "label": "Scouting"
+      },
+      {
+       "chance": 16.7,
+       "label": "Random disease"
+      },
+      {
+       "chance": 33.3,
+       "label": "Nothing (strange ritual, 'results seem positive')"
+      },
+      {
+       "chance": 16.7,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "corridor or treasure room",
+   "unsure": "Wiki lists two separate 'Nothing' rows (33.3% + 16.7%); first one's flavor implies a positive effect but none is given."
+  },
+  {
+   "id": "winemakers-reserve",
+   "name": "Winemaker's Reserve",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "Bottles of The Blood disguised as wine.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Winemaker%27s_Reserve.png?5c69c6",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "The Blood x3-5"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/The_Courtyard"
+   ],
+   "where": "only during 'Gather the Blood' quest"
+  },
+  {
+   "id": "lost-treasure-box",
+   "name": "Lost Treasure Box",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": "This chest must hold some kind of loot.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Lost_Treasure_Box.png?3079f1",
+   "options": [
+    {
+     "activator": "skeletonKey",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Heirlooms x2 + any loot x1"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Any loot x1 + non-set trinket x2 + gems x1"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/The_Courtyard"
+   ],
+   "where": "treasure room",
+   "unsure": "Courtyard page advises against keys here: key 'will replace the trinkets contained within with random loot'."
+  },
+  {
+   "id": "trinket-chest",
+   "name": "Trinket Chest",
+   "region": "courtyard",
+   "dlc": "crimson-court",
+   "description": null,
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Trinket_Chest.png?cd0971",
+   "options": [
+    {
+     "activator": "skeletonKey",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Heirlooms x2 + any loot x1"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Set trinket",
+       "amount": 1
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/The_Courtyard"
+   ],
+   "where": "only during main Courtyard campaign (boss quests)",
+   "unsure": "No flavor text on wiki."
+  },
+  {
+   "id": "corrupted-harvest",
+   "name": "Corrupted Harvest",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Take up the axe. Blow off some steam.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Corrupted_Harvest.png?675617",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Party stress heal 60"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "fresh-harvest",
+   "name": "Fresh Harvest",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Tantalizing provisions to renew a body.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Fresh_Harvest.png?b2392a",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Heal 90% max HP"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ],
+   "unsure": "Wiki doesn't say if single hero or party (Plentiful Bounty explicitly says party); likely single hero."
+  },
+  {
+   "id": "gleaming-shards",
+   "name": "Gleaming Shards",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Glittering crystals spill onto the ground.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Gleaming_Shards.png?6a3f60",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Comet Shards x5-15"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "millers-hearth",
+   "name": "Miller's Hearth",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "The fireplace is slowly coming apart but looks functional.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Miller%27s_Hearth.png?1f10d3",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Camp (acts as firewood)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "plentiful-bounty",
+   "name": "Plentiful Bounty",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Tantalizing provisions to renew our energies.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Plentiful_Bounty.png?240c86",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Party heal 65% max HP"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "rotted-fare",
+   "name": "Rotted Fare",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Take up the hatchet. Blow off some steam.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Rotted_Fare.png?659dc5",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress heal 100"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ],
+   "unsure": "Wiki doesn't say single hero or party (Corrupted Harvest explicitly says party); likely single hero."
+  },
+  {
+   "id": "stockpile",
+   "name": "Stockpile",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "Useful supplies for this harrowing journey.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Stockpile.png?9a2c63",
+   "options": [
+    {
+     "activator": "skeletonKey",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Food x6-12 + any supplies + trinket"
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 66.7,
+       "label": "Laudanum, medicinal herbs or food"
+      },
+      {
+       "chance": 33.3,
+       "label": "Nothing"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "mildred",
+   "name": "Mildred",
+   "region": "farmstead",
+   "dlc": "color-of-madness",
+   "description": "This anguished creature does not seem hostile, yet.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Mildred.png?a83cf2",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Mildred's Locket trinket (first time); any trinket or shards after"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data",
+    "https://darkestdungeon.wiki.gg/wiki/Farmstead"
+   ]
+  },
+  {
+   "id": "brigands-tent",
+   "name": "Brigand's Tent",
+   "region": "special",
+   "dlc": null,
+   "description": "Clearly where the ambushers camp.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Brigand%27s_Tent.png?b57408",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Any loot",
+       "amount": 2
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Old Road (not in Stygian mode)",
+   "unsure": "Wiki gives no chance; 100% implied (single outcome)."
+  },
+  {
+   "id": "bandits-trapped-chest",
+   "name": "Bandit's Trapped Chest",
+   "region": "special",
+   "dlc": null,
+   "description": "Something is not quite right with this one...",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Bandit%27s_Trapped_Chest.png?c7a6fa",
+   "options": [
+    {
+     "activator": "skeletonKey",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Trinkets",
+       "amount": 2
+      }
+     ]
+    },
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Blight (trapped)"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Old Road",
+   "unsure": "Key chance not stated; 100% implied."
+  },
+  {
+   "id": "ancestors-knapsack",
+   "name": "Ancestor's Knapsack",
+   "region": "special",
+   "dlc": null,
+   "description": "A chest untouched for centuries. There's a locked compartment on the side of it.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Ancestor%27s_Knapsack.png?688630",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Gold/gems x5 + ancestral trinket x1"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Darkest Dungeon or Wolves at the Door"
+  },
+  {
+   "id": "forgotten-strongbox",
+   "name": "Forgotten Strongbox",
+   "region": "special",
+   "dlc": "crimson-court",
+   "description": null,
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Forgotten_Strongbox.png?430bd7",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Colored key for the boss quest"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Courtyard boss (epic) quests; four variants, each gives its colored key",
+   "unsure": "No flavor text or chance on wiki; 100% implied."
+  },
+  {
+   "id": "iron-crown",
+   "name": "Iron Crown",
+   "region": "special",
+   "dlc": null,
+   "description": "We can light this with a Hand of Glory.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Iron_Crown.png?994732",
+   "options": [
+    {
+     "activator": "other:handOfGlory",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Quest progress 1/3"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Darkest Dungeon, quest 2 (cannot interact without Hand of Glory)",
+   "unsure": "Chance not stated; 100% implied."
+  },
+  {
+   "id": "locus-beacon",
+   "name": "Locus Beacon",
+   "region": "special",
+   "dlc": null,
+   "description": "This must be it - the beginning of the end.",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Locus_Beacon.png?5c48b2",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Completes quest"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Darkest Dungeon, quest 3",
+   "unsure": "Chance not stated; 100% implied."
+  },
+  {
+   "id": "transcendent-terror",
+   "name": "Transcendent Terror",
+   "region": "special",
+   "dlc": null,
+   "description": "Surely nothing good can come of a dialogue with the dead...?",
+   "iconUrl": "https://darkestdungeon.wiki.gg/images/Transcendent_Terror.png?8919d8",
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Stress +100"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Old Road (Stygian mode only)"
+  },
+  {
+   "id": "throbbing-cocoons-infestation",
+   "name": "Throbbing Cocoons (Infestation)",
+   "region": "special",
+   "dlc": "crimson-court",
+   "description": null,
+   "iconUrl": null,
+   "options": [
+    {
+     "activator": "nothing",
+     "outcomes": [
+      {
+       "chance": 100,
+       "label": "Fight: Gatekeeper + Manservants/Supplicants/Sycophants"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    "https://darkestdungeon.wiki.gg/wiki/Curios",
+    "https://darkestdungeon.wiki.gg/wiki/Module:Curios/Data"
+   ],
+   "where": "Base dungeons (corridor) at high Crimson Court infestation",
+   "unsure": "Not in requested list; included as Crimson Court curio found outside the Courtyard. Shares sprite name with Courtyard cocoons, no separate icon confirmed."
+  }
+ ],
+ "provisions": {
+  "courtyard": null,
+  "farmstead": null,
+  "notes": {
+   "courtyard": "No recommended loadout or fixed supply per length on wiki. Courtyard page: 'One stack of Torches should suffice for a typical venture in the Courtyard'; 'Firewood will not be given at the beginning of an Epic quest' (Wine Crate + shovel is only Courtyard firewood source); bring a reserve of The Blood; holy water, bandages, shovels, herbs useful; antivenom less important; avoid skeleton keys on chests. No quantities except torches. ludo.guide (third-party) suggests 'three sets' of The Blood for boss quests. Sources: https://darkestdungeon.wiki.gg/wiki/The_Courtyard , https://www.ludo.guide/guide/darkest-dungeon/courtyard",
+   "farmstead": "No recommended loadout/fixed supply on wiki. Farmstead page: 'No Firewood will be given for any Farmstead expedition' (camp at Miller's Hearth); most useful provisions are Food (for camping) and Skeleton Keys (Stockpile); 'There is no need to bring Torches or Shovels.' Source: https://darkestdungeon.wiki.gg/wiki/Farmstead",
+   "general": "Provisions page gives no per-dungeon recommendations; only firewood by length: Short 0, Medium 1, Long 2. Source: https://darkestdungeon.wiki.gg/wiki/Provisions"
+  }
+ },
+ "lengths": {
+  "courtyard": "Not standard short/medium/long board quests. Fixed quest set: 'Burn the Hives' = short, Novice tier (first quest); 3 boss quests (Morbid Entertainment / Served Cold / A Bewitching Predator) = Epic length, very large maps, cost an Invitation, no firewood given; 'Gather the Blood' (repeatable, Winemaker's Reserves) and 'Slay the Garden Guardian' described as 'more or less normal' with no length on wiki. ludo.guide calls Gather the Blood 'Short L5' and Hives 'Short L1'. Sources: https://darkestdungeon.wiki.gg/wiki/The_Courtyard , https://www.ludo.guide/guide/darkest-dungeon/courtyard",
+  "farmstead": "No short/medium/long. Wave-based: Apprentice = single wave group, no boss, wave ends after 20 kills; Veteran = single wave group ending with The Miller boss; Endless Harvest = repeatable endless waves until defeat/flee. Waves (~10 kills each) with rooms (curios) between; most wave groups = 2-3 waves + boss. Source: https://darkestdungeon.wiki.gg/wiki/Farmstead"
+ },
+ "baseGameCheck": [
+  {
+   "region": "all",
+   "curio": "(pattern)",
+   "issue": "Old data omits 'Journal Entry' outcomes and renormalizes the rest (e.g. Stack of Books, Bookshelf, Pile of Scrolls). Consistent, not an error, but odds differ from wiki raw values."
+  },
+  {
+   "region": "all",
+   "curio": "Eldritch Altar",
+   "issue": "Old by-hand 50/33/16/16 (=115%: Stress +50, pos quirk, neg quirk, nothing). Wiki: 40% Stress +25, 10% purge negative quirk, 50% Nothing. Holy Water (purge neg quirk 100%) OK."
+  },
+  {
+   "region": "all",
+   "curio": "Stack of Books",
+   "issue": "Single shared curio (all dungeons) on wiki. 'Stack of books' (ruins) and 'Stack of Books' (warrens) are the same curio; also missing from weald and cove in old data. Wiki by-hand: 22.2 pos quirk, 16.7 journal, 22.2 Stress +25, 11.1 neg quirk, 11.1 light -25, 16.7 nothing (old values = these minus journal, renormalized; ruins entry rounded 26/26/13/13/20)."
+  },
+  {
+   "region": "all",
+   "curio": "Heirloom Chest",
+   "issue": "Wiki has 2 identical-looking variants. V1: Key Heirlooms x4, Antivenom Heirlooms x3, hand 75% Heirlooms x2/25% Bleed/25% Blight (wiki sums 125%, wiki error). V2: Key Any loot x3, Shovel 66.7% Any loot x2/33.3% nothing, hand 50% Any loot x2/25% Bleed/25% Blight. Old merges both, labels hand loot 'Gold or gems', bleed/blight 12.5 each, no Shovel option."
+  },
+  {
+   "region": "all",
+   "curio": "Sack",
+   "issue": "Wiki loot = Gold (old: Gold or gems). Minor."
+  },
+  {
+   "region": "ruins",
+   "curio": "Bookshelf",
+   "issue": "Wiki stress is +15 (old +50); wiki neg outcome is random negative quirk only (old 'negative quirk or disease')."
+  },
+  {
+   "region": "ruins",
+   "curio": "Confession Booth",
+   "issue": "Wiki by-hand stress +15 (old +20)."
+  },
+  {
+   "region": "ruins",
+   "curio": "Suit of Armor",
+   "issue": "Wiki buff +15% PROT, +10 DODGE (old 10% PROT)."
+  },
+  {
+   "region": "weald",
+   "curio": "Ancient Coffin",
+   "issue": "Quirks are Weald Adventurer (8.3) + Weald Explorer (8.3); old lists Adventurer twice."
+  },
+  {
+   "region": "weald",
+   "curio": "Beast Carcass",
+   "issue": "Wiki: 42.9 food, 19 random disease, 9.5 Rabies, 14.3 Zoophobia, 14.3 nothing. Old merges disease as 28.6 'Rabies'."
+  },
+  {
+   "region": "cove",
+   "curio": "Bas-Relief",
+   "issue": "Wiki by-hand 66.7 pos quirk / 22.2 neg quirk / 11.1 random disease (old 66.7/25/8.3)."
+  },
+  {
+   "region": "cove",
+   "curio": "Brackish Tidepool",
+   "issue": "Wiki name 'Brackish Tide Pool'. Antivenom: 50% heal 5 HP / 50% stress heal 6 (old 100% 'heal 5 stress, cure status, heal 5 HP')."
+  },
+  {
+   "region": "cove",
+   "curio": "Fish Idol",
+   "issue": "Wiki Holy Water: 100% +18% DMG (old 50/50 with '+10% DMG, 5 ACC'). Wiki hand 2nd debuff is '-12 DODGE' only (old adds '3 round Marked')."
+  },
+  {
+   "region": "cove",
+   "curio": "Giant Fish Carcass",
+   "issue": "Wiki name 'Fish Carcass'. Herb result: gem/trinkets x2 + gem/gold x1 + supplies x2 (old 'Any loot'). Bleed 5.6 (old 5.5)."
+  },
+  {
+   "region": "cove",
+   "curio": "Ship's Figurehead",
+   "issue": "Wiki: 66.7% stress heal 25-30, 33.3% buff +20% DMG +4 SPD. Old: 66.7% 'Buff 20% SPD', 33.3% stress heal 30 (odds swapped, buff wrong)."
+  },
+  {
+   "region": "warrens",
+   "curio": "Dinner Cart",
+   "issue": "Wiki: 37.5 food+gold/trinket, 25 Blight, 12.5 The Black Plague, 25 nothing (old 25/25/25 random disease/25)."
+  },
+  {
+   "region": "warrens",
+   "curio": "Makeshift dining table",
+   "issue": "Wiki name 'Makeshift Dining Table'. Disease is Tapeworm (old 'random disease'); loot food + gold/supplies (old 'gold, food or trinket')."
+  },
+  {
+   "region": "warrens",
+   "curio": "Moonshine Barrel",
+   "issue": "11.1% outcome is negative quirk Tippler (old 'Alcoholism disease')."
+  },
+  {
+   "region": "warrens",
+   "curio": "Occult Scrawlings",
+   "issue": "Wiki: 33.3 pos quirk, 16.7 neg quirk, 25 Stress +25, 25 nothing (old neg 17.6, sums 100.9)."
+  },
+  {
+   "region": "warrens",
+   "curio": "Sacrifial Stone",
+   "issue": "Typo, wiki 'Sacrificial Stone'. Quirks: Warrens Explorer + Warrens Scrounger (old Explorer twice)."
+  },
+  {
+   "region": "all",
+   "curio": "(missing)",
+   "issue": "Old has no quest-only curios: Ruins Reliquary + Corrupted Altar (Consecrated Essence); Weald Chirurgeon's Satchel + Infected Corpse (Potent Salve); Cove Shipment Crate + Protective Ward (Pineal Gland); Warrens Foodstuff Crate + Animalistic Shrine (Pick-Axe). Gather/Activate expeditions only. No regular base curio missing besides Stack of Books in weald/cove."
+  },
+  {
+   "region": "all",
+   "curio": "(retired)",
+   "issue": "Wiki 'Retired Curios': Locked Strongbox, Large Strongbox (not in old; fine). Note wiki Courtyard probability table still lists Locked Strongbox 25% in treasure rooms - contradictory."
+  }
+ ]
+}

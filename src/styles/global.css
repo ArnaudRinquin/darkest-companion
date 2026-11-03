@@ -435,3 +435,71 @@ img {
     transition: none !important;
   }
 }
+
+/* DLC additions */
+.length-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 0 6px;
+  flex-wrap: wrap;
+}
+.length-note strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+.provision-notes ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 4px;
+  font-size: 0.92rem;
+}
+.provision-notes li::marker {
+  color: var(--gold-dim);
+}
+.hint {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.curio-name .anchor {
+  color: inherit;
+  text-decoration: none;
+}
+.curio-name .anchor:hover {
+  text-decoration: underline;
+}
+
+/* Six regions on a phone: hide the legends visually, tighten the torches. */
+@media (max-width: 719px) {
+  .torch-group legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .torch-options {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+  .torch {
+    min-width: 0;
+    padding: 2px 0;
+    font-size: 0.72rem;
+  }
+}
+
+/* Grid children default to min-width:auto; let long words wrap instead of overflowing. */
+.layout > *,
+.side > *,
+.curio,
+.curio-head > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

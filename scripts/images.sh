@@ -20,7 +20,7 @@ render() { # source.html?query out.png width height
 
 mkdir -p public/og
 render "card.html" public/og/og.png 1200 630
-for r in ruins warrens weald cove; do
+for r in ruins warrens weald cove courtyard farmstead; do
   render "card.html?region=$r" "public/og/$r.png" 1200 630
 done
 render "card.html?size=social" assets/social-preview.png 1280 640

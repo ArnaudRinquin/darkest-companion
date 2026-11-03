@@ -7,13 +7,20 @@ import { LENGTHS, REGIONS } from '../src/data/regions';
 import { existsSync } from 'node:fs';
 
 const BASE = ['ruins', 'warrens', 'weald', 'cove'] as const;
+const norm = (s: string) => s.toLowerCase();
+// v1 names corrected against the wiki (see fixes in src/data/curios.ts).
+const RENAMED: Record<string, string> = {
+  'Sacrifial Stone': 'Sacrificial Stone',
+  'Brackish Tidepool': 'Brackish Tide Pool',
+  'Giant Fish Carcass': 'Fish Carcass',
+};
 
 describe('v1 parity', () => {
   it('every v1 curio is still there, per region, with the same options', () => {
     for (const r of BASE) {
       const now = [...curiosFor(r), ...curiosFor('shared')];
       for (const old of (legacy.curios as any)[r]) {
-        const c = now.find((x) => x.name === old.name);
+        const c = now.find((x) => norm(x.name) === norm(RENAMED[old.name] ?? old.name));
         expect(c, `${r}: ${old.name}`).toBeTruthy();
         expect(c!.options.length, `${r}: ${old.name} options`).toBe(old.options.length);
       }

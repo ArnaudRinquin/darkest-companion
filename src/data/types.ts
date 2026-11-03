@@ -12,7 +12,9 @@ export type ActivatorId =
   | 'shovel'
   | 'skeletonKey'
   | 'torch'
-  | 'laudanum';
+  | 'laudanum'
+  | 'theBlood'
+  | 'handOfGlory';
 
 export type ProvisionId =
   | 'firewood'
@@ -47,7 +49,8 @@ export interface Curio {
   /** Path under public/icons/. */
   icon?: string;
   description?: string;
-  /** Where a 'special' curio shows up. */
+  dlc?: DlcId;
+  /** Where it shows up, when that's narrower than "anywhere in the region". */
   where?: string;
   options: CurioOption[];
   /** URLs. Empty = ported from v1 (community-sourced, unverified). */
@@ -60,7 +63,10 @@ export interface Region {
   id: RegionId;
   label: string;
   dlc?: DlcId;
+  /** Empty = the area has no short/medium/long expeditions. */
   lengths: LengthId[];
+  /** Why there are no lengths, shown instead of the length picker. */
+  lengthNote?: string;
 }
 
 export interface Tip {

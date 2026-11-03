@@ -46,6 +46,31 @@ export const LOADOUTS: Partial<Record<RegionId, Record<LengthId, Loadout>>> = {
   },
 };
 
+/**
+ * DLC areas: the wiki gives guidance, not quantities. We show the guidance
+ * instead of inventing a loadout.
+ */
+export const PROVISION_NOTES: Partial<Record<RegionId, { tips: string[]; sources: string[] }>> = {
+  courtyard: {
+    tips: [
+      'One stack of torches should be enough.',
+      'Bring a reserve of The Blood: several curios and the Crimson Curse need it.',
+      'Holy water, bandages, shovels and herbs are useful; antivenom less so.',
+      'No firewood on epic (boss) quests. A shovel on a Wine Crate is the only Courtyard firewood.',
+      'Avoid using skeleton keys on chests: they swap trinkets for random loot.',
+    ],
+    sources: ['https://darkestdungeon.wiki.gg/wiki/The_Courtyard'],
+  },
+  farmstead: {
+    tips: [
+      'No firewood is given: you camp at the Miller\'s Hearth.',
+      'Food (for camping) and skeleton keys (Stockpile) are the most useful.',
+      'No need for torches or shovels.',
+    ],
+    sources: ['https://darkestdungeon.wiki.gg/wiki/Farmstead'],
+  },
+};
+
 /** Food icon changes with stack size, like in game. */
 export function provisionIcon(id: ProvisionId, quantity: number): string {
   if (id !== 'food') return PROVISIONS[id].icon;

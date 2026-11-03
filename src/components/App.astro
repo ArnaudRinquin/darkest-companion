@@ -1,8 +1,8 @@
 ---
 import { ACTIVATORS } from '../data/activators';
 import { curiosFor, hasSharedCurios } from '../data/curios';
-import { LOADOUTS, PROVISIONS, PROVISION_ORDER, loadoutCost, provisionIcon, stacks } from '../data/provisions';
-import { DEFAULT_LENGTH, DEFAULT_REGION, LENGTHS, REGIONS } from '../data/regions';
+import { LOADOUTS, PROVISIONS, PROVISION_NOTES, PROVISION_ORDER, loadoutCost, provisionIcon, stacks } from '../data/provisions';
+import { DEFAULT_LENGTH, DEFAULT_REGION, DLC_LABELS, LENGTHS, REGIONS } from '../data/regions';
 import { TIPS } from '../data/tips';
 import type { Curio, ProvisionId, RegionId } from '../data/types';
 import { boot, pickState, type Config } from '../scripts/state';
@@ -35,7 +35,12 @@ const visibility = [
     (r) => `.app:has(#region-${r.id}:checked) [data-region]:not([data-region~="${r.id}"]){display:none}`,
   ),
   ...LENGTHS.map((l) => `.app:has(#length-${l}:checked) [data-length]:not([data-length~="${l}"]){display:none}`),
+  // Areas without short/medium/long: swap the length picker for a note.
+  ...REGIONS.filter((r) => !r.lengths.length).map((r) => `.app:has(#region-${r.id}:checked) .length-group{display:none}`),
 ].join('\n');
+const host = (u: string) => new URL(u).hostname.replace(/^www\./, '');
+const siteName = (u: string) => (host(u) === 'darkestdungeon.wiki.gg' ? 'Darkest Dungeon Wiki' : host(u));
+const uniqueByHost = (urls: string[]) => urls.filter((u, i) => urls.findIndex((v) => host(v) === host(u)) === i);
 
 const sections = REGIONS.map((r) => ({
   region: r,
@@ -77,13 +82,16 @@ const tipCategories = [
                 checked={r.id === initialRegion}
               />
               <span class="torch-icon" aria-hidden="true" />
-              <span class="torch-label">{r.label}</span>
+              <span class="torch-label">
+                {r.label}
+                {r.dlc && <span class="sr-only"> ({DLC_LABELS[r.dlc]} DLC)</span>}
+              </span>
             </label>
           ))
         }
       </div>
     </fieldset>
-    <fieldset class="torch-group">
+    <fieldset class="torch-group length-group">
       <legend>Length</legend>
       <div class="torch-options">
         {
@@ -97,6 +105,13 @@ const tipCategories = [
         }
       </div>
     </fieldset>
+    {
+      REGIONS.filter((r) => r.lengthNote).map((r) => (
+        <p class="length-note" data-region={r.id}>
+          <strong>No expedition lengths.</strong> {r.lengthNote}
+        </p>
+      ))
+    }
   </form>
   <script is:inline set:html={bootScript} />
 
@@ -107,6 +122,26 @@ const tipCategories = [
         {
           REGIONS.map((r) => {
             const byLength = LOADOUTS[r.id];
+            const notes = PROVISION_NOTES[r.id];
+            if (!byLength && notes)
+              return (
+                <div class="provision-notes" data-region={r.id}>
+                  <p class="hint">No sourced quantities for the {r.label}, only guidance:</p>
+                  <ul>
+                    {notes.tips.map((t) => (
+                      <li>{t}</li>
+                    ))}
+                  </ul>
+                  <p class="sources">
+                    Source:{' '}
+                    {notes.sources.map((u) => (
+                      <a href={u} rel="noopener">
+                        {siteName(u)}
+                      </a>
+                    ))}
+                  </p>
+                </div>
+              );
             if (!byLength)
               return (
                 <p class="empty" data-region={r.id}>
@@ -212,7 +247,11 @@ const tipCategories = [
                         <span class="curio-icon curio-icon-missing" aria-hidden="true" />
                       )}
                       <div>
-                        <h4 class="curio-name">{c.name}</h4>
+                        <h4 class="curio-name">
+                          <a href={`#${c.id}`} class="anchor">
+                            {c.name}
+                          </a>
+                        </h4>
                         {c.description && <p class="curio-desc">{c.description}</p>}
                         {c.where && <p class="curio-where">{c.where}</p>}
                       </div>
@@ -251,11 +290,11 @@ const tipCategories = [
                     {c.sources?.length ? (
                       <p class="sources">
                         Source:{' '}
-                        {c.sources.map((s, i) => (
+                        {uniqueByHost(c.sources).map((s, i) => (
                           <>
                             {i > 0 && ', '}
                             <a href={s} rel="noopener">
-                              {new URL(s).hostname.replace(/^www\./, '')}
+                              {siteName(s)}
                             </a>
                           </>
                         ))}

@@ -11,4 +11,6 @@ export const ACTIVATORS: Record<ActivatorId, { label: string; icon: string }> = 
   skeletonKey: { label: 'Skeleton Key', icon: 'provisions/Skeleton_Key.png' },
   torch: { label: 'Torch', icon: 'provisions/Torch.png' },
   laudanum: { label: 'Laudanum', icon: 'provisions/Laudanum.png' },
+  theBlood: { label: 'The Blood', icon: 'provisions/The_Blood.png' },
+  handOfGlory: { label: 'Hand of Glory', icon: 'provisions/Hand_of_Glory.png' },
 };

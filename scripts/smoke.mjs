@@ -26,7 +26,7 @@ const visibleTitles = (page) =>
   await page.goto(url);
   check('v1 region restored', await page.isChecked('#region-cove'));
   check('v1 length restored', await page.isChecked('#length-medium'));
-  check('only cove curios', JSON.stringify(await visibleTitles(page)) === '["Cove curios","Found in every base region"]', JSON.stringify(await visibleTitles(page)));
+  check('only cove curios', JSON.stringify(await visibleTitles(page)) === '["Cove curios","Found in every base region","Special & quest curios"]', JSON.stringify(await visibleTitles(page)));
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   check('no horizontal scroll on mobile', overflow <= 0, `(${overflow}px)`);
   if (shots) await page.screenshot({ path: `${shots}/mobile.png`, fullPage: false });
