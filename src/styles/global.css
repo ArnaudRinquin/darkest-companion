@@ -1160,7 +1160,9 @@ img {
 .length-group .torch input:checked + .torch-icon,
 .mode-group .torch input:checked + .torch-icon {
   background-position: 0 -6px;
-  filter: drop-shadow(0 0 7px rgb(255 140 40 / 0.7));
+  /* the lit sprite's iron ring/handle is black: thin gold edge (like the logo) + warm glow */
+  filter: drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95)) drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95))
+    drop-shadow(0 0 7px rgb(255 140 40 / 0.6));
   opacity: 1;
 }
 .length-group .torch:hover input:not(:checked) + .torch-icon,
