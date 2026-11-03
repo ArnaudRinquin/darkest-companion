@@ -1,0 +1,288 @@
+---
+import { ACTIVATORS } from '../data/activators';
+import { curiosFor, hasSharedCurios } from '../data/curios';
+import { LOADOUTS, PROVISIONS, PROVISION_ORDER, loadoutCost, provisionIcon, stacks } from '../data/provisions';
+import { DEFAULT_LENGTH, DEFAULT_REGION, LENGTHS, REGIONS } from '../data/regions';
+import { TIPS } from '../data/tips';
+import type { Curio, ProvisionId, RegionId } from '../data/types';
+import { boot, pickState, type Config } from '../scripts/state';
+
+interface Props {
+  /** Set on /<region>/ pages. */
+  pinnedRegion?: RegionId;
+}
+const { pinnedRegion } = Astro.props;
+const initialRegion = pinnedRegion ?? DEFAULT_REGION;
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const icon = (p: string) => `${base}icons/${p}`;
+const pct = (n: number) => `${Math.round(n * 10) / 10}%`;
+const baseRegions = REGIONS.filter((r) => hasSharedCurios(r.id)).map((r) => r.id);
+
+const cfg: Config = {
+  key: 'darkest-companion:v2',
+  legacyKey: 'reduxPersist:mission',
+  regions: REGIONS.map((r) => r.id),
+  lengths: LENGTHS,
+  fallback: { region: initialRegion, length: DEFAULT_LENGTH },
+  ...(pinnedRegion && { pinnedRegion }),
+};
+const bootScript = `${pickState.toString()};(${boot.toString()})(${JSON.stringify(cfg)});`;
+
+// Show only blocks matching the checked radios. Pure CSS (:has), so switching needs no JS.
+const visibility = [
+  ...REGIONS.map(
+    (r) => `.app:has(#region-${r.id}:checked) [data-region]:not([data-region~="${r.id}"]){display:none}`,
+  ),
+  ...LENGTHS.map((l) => `.app:has(#length-${l}:checked) [data-length]:not([data-length~="${l}"]){display:none}`),
+].join('\n');
+
+const sections = REGIONS.map((r) => ({
+  region: r,
+  curios: curiosFor(r.id),
+}));
+const shared = curiosFor('shared');
+const special = curiosFor('special');
+const tipCategories = [
+  { key: 'effective', label: 'Effective' },
+  { key: 'ineffective', label: 'Ineffective' },
+  { key: 'dangers', label: 'Dangers' },
+] as const;
+---
+
+<style set:html={visibility}></style>
+
+<div class="app">
+  <header class="masthead">
+    <a href={base} class="logo-link">
+      <img class="logo" src={`${base}logo.png`} alt="Darkest Companion" width="313" height="101" />
+    </a>
+    <p class="tagline">
+      Darkest Dungeon curio outcomes, item interactions and provisions for every region and expedition length.
+    </p>
+  </header>
+
+  <form class="picker" aria-label="Expedition" onsubmit="return false">
+    <fieldset class="torch-group">
+      <legend>Region</legend>
+      <div class="torch-options">
+        {
+          REGIONS.map((r) => (
+            <label class="torch">
+              <input
+                type="radio"
+                name="region"
+                id={`region-${r.id}`}
+                value={r.id}
+                checked={r.id === initialRegion}
+              />
+              <span class="torch-icon" aria-hidden="true" />
+              <span class="torch-label">{r.label}</span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+    <fieldset class="torch-group">
+      <legend>Length</legend>
+      <div class="torch-options">
+        {
+          LENGTHS.map((l) => (
+            <label class="torch">
+              <input type="radio" name="length" id={`length-${l}`} value={l} checked={l === DEFAULT_LENGTH} />
+              <span class="torch-icon" aria-hidden="true" />
+              <span class="torch-label">{l}</span>
+            </label>
+          ))
+        }
+      </div>
+    </fieldset>
+  </form>
+  <script is:inline set:html={bootScript} />
+
+  <div class="layout">
+    <div class="side">
+      <section class="panel provisions" aria-labelledby="provisions-title">
+        <h2 id="provisions-title">Provisions</h2>
+        {
+          REGIONS.map((r) => {
+            const byLength = LOADOUTS[r.id];
+            if (!byLength)
+              return (
+                <p class="empty" data-region={r.id}>
+                  No sourced loadout for the {r.label} yet.
+                </p>
+              );
+            return LENGTHS.map((l) => {
+              const loadout = byLength[l];
+              const slots = PROVISION_ORDER.flatMap((id: ProvisionId) =>
+                stacks(loadout[id] ?? 0, PROVISIONS[id].stack).map((q) => ({ id, q })),
+              );
+              return (
+                <div class="loadout" data-region={r.id} data-length={l}>
+                  <ul class="inventory" aria-label={`Recommended provisions, ${r.label}, ${l}`}>
+                    {slots.map(({ id, q }) => (
+                      <li class="slot">
+                        <img src={icon(provisionIcon(id, q))} alt="" width="40" height="80" loading="lazy" />
+                        <span class="qty" aria-hidden="true">
+                          {q > 1 ? q : ''}
+                        </span>
+                        <span class="sr-only">
+                          {q} {PROVISIONS[id].label}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="total">
+                    <span>Total cost</span>
+                    <img src={icon('coin.png')} alt="" width="16" height="16" />
+                    <strong>{loadoutCost(loadout).toLocaleString('en-US')}</strong>
+                  </p>
+                </div>
+              );
+            });
+          })
+        }
+      </section>
+
+      <section class="panel tips" aria-labelledby="tips-title">
+        <h2 id="tips-title">Tips</h2>
+        {
+          REGIONS.map((r) => {
+            const tips = TIPS[r.id];
+            if (!tips)
+              return (
+                <p class="empty" data-region={r.id}>
+                  No tips for the {r.label} yet.
+                </p>
+              );
+            return (
+              <div class="tip-grid" data-region={r.id}>
+                {tipCategories
+                  .filter((c) => tips[c.key].length)
+                  .map((c) => (
+                    <div class={`tip-cat tip-${c.key}`}>
+                      <h3>{c.label}</h3>
+                      <ul>
+                        {tips[c.key].map((t) => (
+                          <li>
+                            <strong>{t.label}</strong> <span>{t.details}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+              </div>
+            );
+          })
+        }
+      </section>
+    </div>
+
+    <section class="curios" aria-labelledby="curios-title">
+      <h2 id="curios-title">Curios</h2>
+      <p class="legend">
+        <img src={icon(ACTIVATORS.nothing.icon)} alt="" width="20" height="20" /> = bare hands. Percentages are the odds of
+        each outcome.
+      </p>
+      {
+        [
+          ...sections.map(({ region, curios }) => ({
+            key: region.id,
+            title: `${region.label} curios`,
+            regions: [region.id],
+            curios,
+          })),
+          { key: 'shared', title: 'Found in every base region', regions: baseRegions, curios: shared },
+          ...(special.length
+            ? [{ key: 'special', title: 'Special & quest curios', regions: REGIONS.map((r) => r.id), curios: special }]
+            : []),
+        ]
+          .filter((g) => g.curios.length)
+          .map((g) => (
+            <div class="curio-group" data-region={g.regions.join(' ')}>
+              <h3 class="group-title">{g.title}</h3>
+              <ul class="curio-list">
+                {g.curios.map((c: Curio) => (
+                  <li class="curio" id={c.id}>
+                    <div class="curio-head">
+                      {c.icon ? (
+                        <img class="curio-icon" src={icon(c.icon)} alt="" width="102" height="66" loading="lazy" />
+                      ) : (
+                        <span class="curio-icon curio-icon-missing" aria-hidden="true" />
+                      )}
+                      <div>
+                        <h4 class="curio-name">{c.name}</h4>
+                        {c.description && <p class="curio-desc">{c.description}</p>}
+                        {c.where && <p class="curio-where">{c.where}</p>}
+                      </div>
+                    </div>
+                    <ul class="options">
+                      {c.options.map((o) => (
+                        <li class="option">
+                          <img
+                            class="activator"
+                            src={icon(ACTIVATORS[o.activator].icon)}
+                            alt={ACTIVATORS[o.activator].label}
+                            title={ACTIVATORS[o.activator].label}
+                            width="36"
+                            height="36"
+                            loading="lazy"
+                          />
+                          <ul class="outcomes">
+                            {o.outcomes.map((x) => (
+                              <li class="outcome" style={`--p:${Math.min(x.chance, 100)}%`}>
+                                <span class="chance">{pct(x.chance)}</span>
+                                <span class="label">
+                                  {x.label}
+                                  {x.amount != null && <span class="amount"> ×{x.amount}</span>}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))}
+                    </ul>
+                    {c.unsure && (
+                      <p class="unsure">
+                        <strong>Unverified:</strong> {c.unsure}
+                      </p>
+                    )}
+                    {c.sources?.length ? (
+                      <p class="sources">
+                        Source:{' '}
+                        {c.sources.map((s, i) => (
+                          <>
+                            {i > 0 && ', '}
+                            <a href={s} rel="noopener">
+                              {new URL(s).hostname.replace(/^www\./, '')}
+                            </a>
+                          </>
+                        ))}
+                      </p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+      }
+    </section>
+  </div>
+
+  <footer class="footer">
+    <nav aria-label="Regions">
+      {REGIONS.map((r) => <a href={`${base}${r.id}/`}>{r.label} curios</a>)}
+    </nav>
+    <p>
+      Data: v1 community data, the <a href="https://darkestdungeon.wiki.gg/wiki/Curios">Darkest Dungeon Wiki</a>
+      (CC BY-SA) and <a href="https://github.com/ArnaudRinquin/darkest-companion/blob/master/SOURCES.md">other sources</a
+      >. Spotted a mistake? <a href="https://github.com/ArnaudRinquin/darkest-companion/issues">Open an issue</a>.
+    </p>
+    <p>
+      Game content, images and materials are trademarks and copyrights of <a href="https://www.redhookgames.com/"
+        >Red Hook Studios</a
+      >, creators of the (awesome) Darkest Dungeon. Fan-made, not affiliated.
+    </p>
+  </footer>
+</div>

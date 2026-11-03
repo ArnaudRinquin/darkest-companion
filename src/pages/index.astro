@@ -1,0 +1,14 @@
+---
+import App from '../components/App.astro';
+import Base from '../layouts/Base.astro';
+import { appLd } from '../lib/seo';
+
+const title = 'Darkest Dungeon Curios & Provisions Guide | Darkest Companion';
+const description =
+  'Which item to use on every Darkest Dungeon curio, with outcome odds, plus recommended provisions for the Ruins, Warrens, Weald and Cove by expedition length.';
+const url = new URL(import.meta.env.BASE_URL, Astro.site).href;
+---
+
+<Base title={title} description={description} path="" jsonLd={[appLd(url, description)]}>
+  <App />
+</Base>
