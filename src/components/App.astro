@@ -1,10 +1,10 @@
 ---
 import { ACTIVATORS } from '../data/activators';
 import { curiosFor, hasSharedCurios } from '../data/curios';
-import { LOADOUTS, PROVISIONS, PROVISION_NOTES, PROVISION_ORDER, loadoutCost, provisionIcon, stacks } from '../data/provisions';
+import { LOADOUTS } from '../data/provisions';
 import { DEFAULT_LENGTH, DEFAULT_REGION, DLC_LABELS, LENGTHS, REGIONS } from '../data/regions';
 import { TIPS } from '../data/tips';
-import type { Curio, ProvisionId, RegionId } from '../data/types';
+import type { Curio, RegionId } from '../data/types';
 import { boot, pickState, type Config } from '../scripts/state';
 import { tone } from '../lib/tone';
 import Inventory from './Inventory.astro';
@@ -49,6 +49,14 @@ const visibility = [
 ].join('\n');
 const host = (u: string) => new URL(u).hostname.replace(/^www\./, '');
 const siteName = (u: string) => (host(u) === 'darkestdungeon.wiki.gg' ? 'Darkest Dungeon Wiki' : host(u));
+// "Wiki: Courtyard", "gamepressure", "Steam discussion"… so several links to one site stay distinguishable.
+const sourceName = (u: string) => {
+  const url = new URL(u);
+  if (host(u) === 'darkestdungeon.wiki.gg') return 'Wiki: ' + decodeURIComponent(url.pathname.split('/').pop()!).replace(/_/g, ' ');
+  if (host(u) === 'steamcommunity.com') return 'Steam discussion';
+  if (host(u) === 'gamepressure.com') return 'gamepressure';
+  return host(u);
+};
 const uniqueByHost = (urls: string[]) => urls.filter((u, i) => urls.findIndex((v) => host(v) === host(u)) === i);
 
 const sections = REGIONS.map((r) => ({
@@ -169,7 +177,6 @@ const tipCategories = [
         {
           REGIONS.map((r) => {
             const byLength = LOADOUTS[r.id];
-            const notes = PROVISION_NOTES[r.id];
             const modes = DLC_LOADOUTS.filter((m) => m.region === r.id);
             if (!byLength && modes.length)
               return (
@@ -181,16 +188,18 @@ const tipCategories = [
                         <summary>
                           Why these numbers? <span class="basis-tag">({m.basis === 'community' ? 'from guides' : 'estimate'})</span>
                         </summary>
-                        {m.notes.map((n) => (
-                          <p>{n}</p>
-                        ))}
+                        <ul>
+                          {m.why.map((w) => (
+                            <li>{w}</li>
+                          ))}
+                        </ul>
                         <p class="sources">
                           Sources:{' '}
                           {m.sources.map((u, i) => (
                             <>
-                              {i > 0 && ', '}
+                              {i > 0 && ' · '}
                               <a href={u} rel="noopener">
-                                {siteName(u)}
+                                {sourceName(u)}
                               </a>
                             </>
                           ))}
@@ -198,24 +207,6 @@ const tipCategories = [
                       </details>
                     </div>
                   ))}
-                  {notes && (
-                    <details class="why">
-                      <summary>{r.label} provisioning rules</summary>
-                      <ul>
-                        {notes.tips.map((t) => (
-                          <li>{t}</li>
-                        ))}
-                      </ul>
-                      <p class="sources">
-                        Source:{' '}
-                        {notes.sources.map((u) => (
-                          <a href={u} rel="noopener">
-                            {siteName(u)}
-                          </a>
-                        ))}
-                      </p>
-                    </details>
-                  )}
                 </div>
               );
             if (!byLength)

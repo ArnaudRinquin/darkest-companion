@@ -1354,3 +1354,41 @@ img {
 .basis-tag {
   color: var(--muted);
 }
+/* "Why these numbers?" panel: compact bullets, no heavy outline on the toggle. */
+.why summary {
+  list-style-position: outside;
+  padding: 2px 0;
+}
+.why summary:focus {
+  outline: none;
+}
+.why summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.why ul {
+  margin: 6px 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 4px;
+}
+.why li::marker {
+  color: var(--gold-dim);
+}
+.why summary {
+  list-style: none;
+}
+.why summary::-webkit-details-marker {
+  display: none;
+}
+.why summary::before {
+  content: '▶';
+  display: inline-block;
+  width: 1.4em;
+  font-size: 0.7em;
+  vertical-align: 1px;
+  color: var(--gold);
+}
+.why[open] summary::before {
+  content: '▼';
+}
