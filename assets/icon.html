@@ -1,0 +1,18 @@
+<!doctype html>
+<!-- Favicon / touch icon source: the torch from the logo on a dark tile. ?size=<px> -->
+<html><head><meta charset="utf-8" /><style>
+  html, body { margin: 0; }
+  body { width: var(--s); height: var(--s); background: #151311 radial-gradient(circle at 50% 35%, #4a3320, #151311 70%);
+    display: grid; place-items: center; overflow: hidden; }
+  .torch { width: calc(var(--s) * .82); height: calc(var(--s) * .82);
+    background: url('../public/logo.png') no-repeat; }
+</style></head><body><div class="torch" id="t"></div>
+<script>
+  const s = +(new URLSearchParams(location.search).get('size') || 180);
+  document.body.style.setProperty('--s', s + 'px');
+  // logo.png is 626x202; flame + ring sit in roughly x 250..375, y 0..115 (above the text).
+  const t = document.getElementById('t'), box = 150, k = (s * .82) / box;
+  t.style.backgroundSize = `${626 * k}px ${202 * k}px`;
+  t.style.backgroundPosition = `${-238 * k}px ${-0 * k}px`;
+  t.style.height = `${120 * k}px`;
+</script></body></html>

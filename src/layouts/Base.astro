@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path relative to base, e.g. '' or 'weald/'. */
+  path: string;
+  jsonLd?: Record<string, unknown>[];
+  /** File in public/og/ (rendered by scripts/images.sh). */
+  ogImage?: string;
+}
+
+const { title, description, path, jsonLd = [], ogImage: og = 'og.png' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const canonical = new URL(base + path, Astro.site).href;
+const ogImage = new URL(base + 'og/' + og, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#151311" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href={`${base}favicon.png`} type="image/png" />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+    <link rel="sitemap" href={`${base}sitemap.xml`} />
+    <link rel="preload" href={`${base}fonts/3073CA_0_0.woff2`} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Darkest Companion" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Darkest Companion: curio outcomes and provisions for Darkest Dungeon" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

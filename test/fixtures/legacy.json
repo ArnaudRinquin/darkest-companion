@@ -1,0 +1,3571 @@
+{
+ "curios": {
+  "ruins": [
+   {
+    "name": "Ancient Artifact",
+    "icon": "./icons/curios/ancient_artifact.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Special trinket or Puzzling Trapezohedron"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Crate",
+    "icon": "./icons/curios/crate.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Heirlooms"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Discarded Pack",
+    "icon": "./icons/curios/discarded_pack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 60,
+        "type": {
+         "label": "Gold, gems or supplies"
+        },
+        "amount": 1.5
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eldritch Altar",
+    "icon": "./icons/curios/eldritch_alter.png",
+    "description": "A weird and unnatural statuette that appears to be an item of unholy worship.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 33,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Heirloom Chest",
+    "icon": "./icons/curios/heirloom_chest.png",
+    "description": "A chest with your family's sigil.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sack",
+    "icon": "./icons/curios/sack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sconce",
+    "icon": "./icons/curios/sconce.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Torch"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Shambler's Altar",
+    "icon": "./icons/curios/shamblers_altar.png",
+    "description": "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Summon Shambler"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Unlocked Strongbox",
+    "icon": "./icons/curios/unlocked_strongbox.png",
+    "description": "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Alchemy Table",
+    "icon": "./icons/curios/alchemy_table.png",
+    "description": "A partially intact set of experimental equipment.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gold or gems"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Set light to 100"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Altar of Light",
+    "icon": "./icons/curios/altar_of_light.png",
+    "description": "A small holy altar seems out of place against the backdrop of corruption.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Buff 20 DMG until camp"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Buff 30 DMG until camp"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Bookshelf",
+    "icon": "./icons/curios/bookshelf.png",
+    "description": "A bookshelf full of old, leather-bound books.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 25,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 8,
+        "type": {
+         "label": "Gain a negative quirk or disease"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Confession Booth",
+    "icon": "./icons/curios/confession_booth.png",
+    "description": "A forsaken confession booth. It hasn't been used in years.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +20"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gold or trinket"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress heal 30"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Decorative Urn",
+    "icon": "./icons/curios/decorative_urn.png",
+    "description": "An urn holds ashes of the departed.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 44,
+        "type": {
+         "label": "Gold or trinket"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 22,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 7,
+        "type": {
+         "label": "Creeping Cough disease"
+        }
+       },
+       {
+        "chances": 3,
+        "type": {
+         "label": "random disease"
+        }
+       },
+       {
+        "chances": 22,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or trinket"
+        },
+        "amount": 2
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gain Guilty Conscience negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Holy Fountain",
+    "icon": "./icons/curios/holy_fountain.png",
+    "description": "An ornate fountain of holy purport.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Heal 10 stress, cure status effect, heal 5 HP"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Gold or gems"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heal 20 stress, cure status effect, heal 12 HP"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Iron Maiden",
+    "icon": "./icons/curios/iron_maiden.png",
+    "description": "A rusty iron maiden stands against the wall, clasped shut.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 40,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Gain Claustrophobia negative quirk"
+        }
+       },
+       {
+        "chances": 13,
+        "type": {
+         "label": "Tetanus disease"
+        }
+       },
+       {
+        "chances": 6,
+        "type": {
+         "label": "random disease"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Locked Display Cabinet",
+    "icon": "./icons/curios/locked_display_cabinet.png",
+    "description": "There could be valuables left inside, but this cabinet is locked.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Bleed"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or heirlooms"
+        },
+        "amount": 2.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or heirlooms"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Locked Sarcophagus",
+    "icon": "./icons/curios/locked_sarcophagus.png",
+    "description": "An ornate sarcophagus. It's locked.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Bleed"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or heirlooms"
+        },
+        "amount": 1.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or heirlooms"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sarcophagus",
+    "icon": "./icons/curios/sarcophagus.png",
+    "description": "An ornate sarcophagus. It is slightly ajar.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 60,
+        "type": {
+         "label": "Gold or heirlooms"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Gain Thanatophobia negative quirk"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Stack of books",
+    "icon": "./icons/curios/stack_of_books.png",
+    "description": "A stack of literary treasures in an unlikely location.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 26,
+        "type": {
+         "label": "Stress +25"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 26,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 13,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 13,
+        "type": {
+         "label": "Decrease light by 25"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress +100"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Suit of Armor",
+    "icon": "./icons/curios/suit_of_armor.png",
+    "description": "An antique suit of armor stands amidst the ruins.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Buff 10 DODGE, 10% PROT until camp"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Gain Ruins Adventurer positive quirk"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Gain Ruins Tactician positive quirk"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "warrens": [
+   {
+    "name": "Ancient Artifact",
+    "icon": "./icons/curios/ancient_artifact.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Special trinket or Puzzling Trapezohedron"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Crate",
+    "icon": "./icons/curios/crate.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Heirlooms"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Discarded Pack",
+    "icon": "./icons/curios/discarded_pack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 60,
+        "type": {
+         "label": "Gold, gems or supplies"
+        },
+        "amount": 1.5
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eldritch Altar",
+    "icon": "./icons/curios/eldritch_alter.png",
+    "description": "A weird and unnatural statuette that appears to be an item of unholy worship.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 33,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Heirloom Chest",
+    "icon": "./icons/curios/heirloom_chest.png",
+    "description": "A chest with your family's sigil.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sack",
+    "icon": "./icons/curios/sack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sconce",
+    "icon": "./icons/curios/sconce.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Torch"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Shambler's Altar",
+    "icon": "./icons/curios/shamblers_altar.png",
+    "description": "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Summon Shambler"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Unlocked Strongbox",
+    "icon": "./icons/curios/unlocked_strongbox.png",
+    "description": "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Bone Altar",
+    "icon": "./icons/curios/bone_altar.png",
+    "description": "A dark altar with skulls prominently on display. A strange power can be felt in its presence.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Buff +15% DMG, +10 ACC, +5% CRT, Cure Status Effects"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Dinner Cart",
+    "icon": "./icons/curios/dinner_cart.png",
+    "description": "A cart of human remains. It looks much like a feeding trough. Disgusting.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gold, food or trinket"
+        },
+        "amount": 1
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "random disease"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, food or trinket"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Makeshift dining table",
+    "icon": "./icons/curios/makeshift_dining_table.png",
+    "description": "An oddly assembled dining table. There might still be food scraps around.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gold, food or trinket"
+        },
+        "amount": 1
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "random disease"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, food or trinket"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Moonshine Barrel",
+    "icon": "./icons/curios/moonshine_barrel.png",
+    "description": "A barrel that reeks of powerful liquors.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Gold, food or supplies"
+        },
+        "amount": 1
+       },
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 11.1,
+        "type": {
+         "label": "Alcoholism disease"
+        }
+       },
+       {
+        "chances": 22.2,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Buff 30% DMG until camp"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Occult Scrawlings",
+    "icon": "./icons/curios/occult_scrawlings.png",
+    "description": "Scrawlings written on what looks like stretched and tanned human flesh...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Gain random positive quirk"
+        },
+        "amount": 1
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Stress +25"
+        }
+       },
+       {
+        "chances": 17.6,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Debuff 20 DODGE"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Pile of Bones",
+    "icon": "./icons/curios/pile_of_bones.png",
+    "description": "All that's left of a previous adventurer, perhaps.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 25,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "random disease"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gain Bloodthirsty negative quirk"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Pile of Scrolls",
+    "icon": "./icons/curios/pile_of_scrolls.png",
+    "description": "A bunch of scrolls. The cursive is sloppy and difficult to read.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 16.7,
+        "type": {
+         "label": "Stress +15"
+        }
+       },
+       {
+        "chances": 11.1,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 5.6,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Rack of Blades",
+    "icon": "./icons/curios/rack_of_blades.png",
+    "description": "A rack of dulled, rusty knives. They are covered in fresh blood.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 40,
+        "type": {
+         "label": "Gold, gems or food"
+        }
+       },
+       {
+        "chances": 40,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Bandage",
+       "icon": "./icons/provisions//Bandage.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or food"
+        },
+        "amount": 1.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sacrifial Stone",
+    "icon": "./icons/curios/sacrificial_stone.png",
+    "description": "A stone used for ancient, barbaric rituals.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Gain Warrens Explorer positive quirk"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Gain Warrens Explorer positive quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Stack of Books",
+    "icon": "./icons/curios/stack_of_books.png",
+    "description": "A stack of literary treasures in an unlikely location.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 26.7,
+        "type": {
+         "label": "Stress +25"
+        }
+       },
+       {
+        "chances": 26.7,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 13.3,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 13.3,
+        "type": {
+         "label": "Decrease light by 25"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress +100"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "weald": [
+   {
+    "name": "Ancient Artifact",
+    "icon": "./icons/curios/ancient_artifact.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Special trinket or Puzzling Trapezohedron"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Crate",
+    "icon": "./icons/curios/crate.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Heirlooms"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Discarded Pack",
+    "icon": "./icons/curios/discarded_pack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 60,
+        "type": {
+         "label": "Gold, gems or supplies"
+        },
+        "amount": 1.5
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eldritch Altar",
+    "icon": "./icons/curios/eldritch_alter.png",
+    "description": "A weird and unnatural statuette that appears to be an item of unholy worship.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 33,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Heirloom Chest",
+    "icon": "./icons/curios/heirloom_chest.png",
+    "description": "A chest with your family's sigil.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sack",
+    "icon": "./icons/curios/sack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sconce",
+    "icon": "./icons/curios/sconce.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Torch"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Shambler's Altar",
+    "icon": "./icons/curios/shamblers_altar.png",
+    "description": "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Summon Shambler"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Unlocked Strongbox",
+    "icon": "./icons/curios/unlocked_strongbox.png",
+    "description": "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Ancient Coffin",
+    "icon": "./icons/curios/ancient_coffin.png",
+    "description": "An old coffin. It is slightly ajar.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Gold or heirlooms"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 8.3,
+        "type": {
+         "label": "Gain Weald Adventurer positive quirk"
+        }
+       },
+       {
+        "chances": 8.3,
+        "type": {
+         "label": "Gain Weald Adventurer positive quirk"
+        }
+       },
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Beast Carcass",
+    "icon": "./icons/curios/beast_carcass.png",
+    "description": "Something has recently mutilated this creature...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 42.9,
+        "type": {
+         "label": "Food"
+        }
+       },
+       {
+        "chances": 28.6,
+        "type": {
+         "label": "Rabies disease"
+        }
+       },
+       {
+        "chances": 14.3,
+        "type": {
+         "label": "Gain Zoophobia negative quirk"
+        }
+       },
+       {
+        "chances": 14.3,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Food"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eerie Spiderweb",
+    "icon": "./icons/curios/eerie_spiderweb.png",
+    "description": "A spiderweb with a strange glow to it. There might be something behind it.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 40,
+        "type": {
+         "label": "Gold, gems or trinket"
+        }
+       },
+       {
+        "chances": 10,
+        "type": {
+         "label": "Gain Slow Reflexes negative quirk"
+        }
+       },
+       {
+        "chances": 10,
+        "type": {
+         "label": "Gain Slowdraw negative quirk"
+        }
+       },
+       {
+        "chances": 40,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Bandage",
+       "icon": "./icons/provisions//Bandage.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold, gems or trinket"
+        },
+        "amount": 1.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Left Luggage",
+    "icon": "./icons/curios/left_luggage.png",
+    "description": "Someone dropped this recently. Probably on the run. It has a lock on it.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Any loot"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Mummified Remains",
+    "icon": "./icons/curios/mummified_remains.png",
+    "description": "Ancient remains. The body looks well preserved.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 40,
+        "type": {
+         "label": "Gold or trinket"
+        }
+       },
+       {
+        "chances": 40,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Bandage",
+       "icon": "./icons/provisions//Bandage.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or trinket"
+        },
+        "amount": 2
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Old Tree",
+    "icon": "./icons/curios/old_tree.png",
+    "description": "This tree has a huge hole in the trunk. Perhaps there's something inside...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Pristine Fountain",
+    "icon": "./icons/curios/pristine_fountain.png",
+    "description": "A beautiful fountain. It looks unaffected by the surrounding chaos.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress heal 20"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress heal 30"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Shallow Grave",
+    "icon": "./icons/curios/shallow_grave.png",
+    "description": "A grave, dug in haste.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "random disease"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gems or herlooms"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Traveler's Tent",
+    "icon": "./icons/curios/travelers_tent.png",
+    "description": "Someone has camped here recently.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 37.5,
+        "type": {
+         "label": "Gold, supplies or heirloooms"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 37.5,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Stress +25"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Troubling Effigy",
+    "icon": "./icons/curios/troubling_effigy.png",
+    "description": "An unsettling effigy erected in service to a mysterious god.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 18.7,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 18.7,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 18.7,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 9.4,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 9.4,
+        "type": {
+         "label": "Stress +15"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "cove": [
+   {
+    "name": "Ancient Artifact",
+    "icon": "./icons/curios/ancient_artifact.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2.5
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Special trinket or Puzzling Trapezohedron"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Crate",
+    "icon": "./icons/curios/crate.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Heirlooms"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Discarded Pack",
+    "icon": "./icons/curios/discarded_pack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 60,
+        "type": {
+         "label": "Gold, gems or supplies"
+        },
+        "amount": 1.5
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Scouting"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eldritch Altar",
+    "icon": "./icons/curios/eldritch_alter.png",
+    "description": "A weird and unnatural statuette that appears to be an item of unholy worship.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress +50"
+        }
+       },
+       {
+        "chances": 33,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 16,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Heirloom Chest",
+    "icon": "./icons/curios/heirloom_chest.png",
+    "description": "A chest with your family's sigil.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 12.5,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Skeleton Key",
+       "icon": "./icons/provisions//Skeleton_Key.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heirlooms"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sack",
+    "icon": "./icons/curios/sack.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Gold or gems"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Sconce",
+    "icon": "./icons/curios/sconce.png",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Torch"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Shambler's Altar",
+    "icon": "./icons/curios/shamblers_altar.png",
+    "description": "It says: \"The sacrifice of fire is the gate to ruin! Place a torch if you crave the void!\"",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Torch",
+       "icon": "./icons/provisions//Torch.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Summon Shambler"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Unlocked Strongbox",
+    "icon": "./icons/curios/unlocked_strongbox.png",
+    "description": "A long-forgotten strongbox sits on the cold stone floor, its contents unknown.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Blight"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Barnacle Crusted Chest",
+    "icon": "./icons/curios/bernacle_crusted_chest.png",
+    "description": "A treasure chest blanketed in barnacles.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Gold, gems, heirlooms or supplies"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Bas-Relief",
+    "icon": "./icons/curios/bas_relief.png",
+    "description": "A puzzingly ancient sculpture of dizzying implication...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 66.7,
+        "type": {
+         "label": "Gain random positive quirk"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Gain random negative quirk"
+        }
+       },
+       {
+        "chances": 8.3,
+        "type": {
+         "label": "random disease"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Stress +100"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Brackish Tidepool",
+    "icon": "./icons/curios/brackish_tidepool.png",
+    "description": "A pool of water cupped in smooth stone. Its color looks sightly off...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 75,
+        "type": {
+         "label": "Buff 33% Bleed, Blight, Disease and Debuff resist until camp"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "random disease"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Antivenom",
+       "icon": "./icons/provisions//Antivenom.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Heal 5 stress, cure status effect, heal 5 HP"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Eerie Coral",
+    "icon": "./icons/curios/eerie_coral.png",
+    "description": "There is something odd about this coral.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Stress heal 10"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Stress +25"
+        }
+       },
+       {
+        "chances": 25,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Purge a negative quirk"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Fish Idol",
+    "icon": "./icons/curios/fish_idol.png",
+    "description": "A strange presence is felt near this statue of worship.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Debuff -25% DMG, -10 ACC until camp"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Debuff -12 DODGE, 3 round Marked until camp"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Holy Water",
+       "icon": "./icons/provisions//Holy_Water.png"
+      },
+      "outcomes": [
+       {
+        "chances": 50,
+        "type": {
+         "label": "Buff 18% DMG until camp"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Buff 10% DMG, 5 ACC until camp"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Giant Fish Carcass",
+    "icon": "./icons/curios/giant_fish_carcass.png",
+    "description": "A stuffed sea creature has washed ashore. Wonder that it ate...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 16.7,
+        "type": {
+         "label": "Gold, gems or supplies"
+        }
+       },
+       {
+        "chances": 16.7,
+        "type": {
+         "label": "The Red Plague disease"
+        }
+       },
+       {
+        "chances": 11.1,
+        "type": {
+         "label": "Blight"
+        }
+       },
+       {
+        "chances": 5.5,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 50,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Medicinal Herb",
+       "icon": "./icons/provisions//Medicinal_Herbs.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Any loot"
+        },
+        "amount": 3
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Giant Oyster",
+    "icon": "./icons/curios/giant_oyster.png",
+    "description": "A live oyster. Who knows what value it hides...",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 40,
+        "type": {
+         "label": "Gold or trinket"
+        },
+        "amount": 2
+       },
+       {
+        "chances": 40,
+        "type": {
+         "label": "Bleed"
+        }
+       },
+       {
+        "chances": 20,
+        "type": {
+         "label": "Nothing"
+        }
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Shovel",
+       "icon": "./icons/provisions//Shovel.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Gold or trinket"
+        },
+        "amount": 3
+       }
+      ]
+     },
+     {
+      "activator": {
+       "label": "Dog Treats",
+       "icon": "./icons/provisions//Dog_Treats.png"
+      },
+      "outcomes": [
+       {
+        "chances": 100,
+        "type": {
+         "label": "Buff 25 DODGE"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Ship's Figurehead",
+    "icon": "./icons/curios/ships_figurehead.png",
+    "description": "The figurehead emits a marvelous aura.",
+    "options": [
+     {
+      "activator": {
+       "label": "Nothing",
+       "icon": "./icons/redCross.png"
+      },
+      "outcomes": [
+       {
+        "chances": 66.7,
+        "type": {
+         "label": "Buff 20% SPD until camp"
+        }
+       },
+       {
+        "chances": 33.3,
+        "type": {
+         "label": "Stress heal 30"
+        }
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "provisions": {
+  "ruins": {
+   "short": {
+    "totalCost": 2850,
+    "firewood": 0,
+    "food": 12,
+    "torches": 8,
+    "shovels": 2,
+    "herbs": 1,
+    "holyWaters": 2,
+    "bandages": 1,
+    "antivenoms": 0,
+    "keys": 1
+   },
+   "medium": {
+    "totalCost": 4625,
+    "firewood": 1,
+    "food": 18,
+    "torches": 13,
+    "shovels": 3,
+    "herbs": 2,
+    "holyWaters": 3,
+    "bandages": 2,
+    "antivenoms": 0,
+    "keys": 2
+   },
+   "long": {
+    "totalCost": 5950,
+    "firewood": 2,
+    "food": 20,
+    "torches": 16,
+    "shovels": 4,
+    "herbs": 3,
+    "holyWaters": 4,
+    "bandages": 3,
+    "antivenoms": 0,
+    "keys": 3
+   }
+  },
+  "warrens": {
+   "short": {
+    "totalCost": 3600,
+    "firewood": 0,
+    "food": 12,
+    "torches": 10,
+    "shovels": 2,
+    "herbs": 3,
+    "holyWaters": 2,
+    "bandages": 1,
+    "antivenoms": 0,
+    "keys": 2
+   },
+   "medium": {
+    "totalCost": 5600,
+    "firewood": 1,
+    "food": 18,
+    "torches": 16,
+    "shovels": 3,
+    "herbs": 4,
+    "holyWaters": 3,
+    "bandages": 2,
+    "antivenoms": 1,
+    "keys": 3
+   },
+   "long": {
+    "totalCost": 6800,
+    "firewood": 2,
+    "food": 20,
+    "torches": 20,
+    "shovels": 4,
+    "herbs": 5,
+    "holyWaters": 4,
+    "bandages": 3,
+    "antivenoms": 1,
+    "keys": 3
+   }
+  },
+  "weald": {
+   "short": {
+    "totalCost": 3400,
+    "firewood": 0,
+    "food": 12,
+    "torches": 8,
+    "shovels": 3,
+    "herbs": 1,
+    "holyWaters": 1,
+    "bandages": 2,
+    "antivenoms": 2,
+    "keys": 1
+   },
+   "medium": {
+    "totalCost": 5575,
+    "firewood": 1,
+    "food": 18,
+    "torches": 13,
+    "shovels": 5,
+    "herbs": 2,
+    "holyWaters": 2,
+    "bandages": 3,
+    "antivenoms": 3,
+    "keys": 2
+   },
+   "long": {
+    "totalCost": 6650,
+    "firewood": 2,
+    "food": 20,
+    "torches": 16,
+    "shovels": 6,
+    "herbs": 2,
+    "holyWaters": 3,
+    "bandages": 4,
+    "antivenoms": 4,
+    "keys": 2
+   }
+  },
+  "cove": {
+   "short": {
+    "totalCost": 3150,
+    "firewood": 0,
+    "food": 12,
+    "torches": 8,
+    "shovels": 3,
+    "herbs": 2,
+    "holyWaters": 0,
+    "bandages": 2,
+    "antivenoms": 0,
+    "keys": 1
+   },
+   "medium": {
+    "totalCost": 5325,
+    "firewood": 1,
+    "food": 18,
+    "torches": 13,
+    "shovels": 5,
+    "herbs": 3,
+    "holyWaters": 1,
+    "bandages": 4,
+    "antivenoms": 0,
+    "keys": 2
+   },
+   "long": {
+    "totalCost": 6650,
+    "firewood": 2,
+    "food": 20,
+    "torches": 16,
+    "shovels": 6,
+    "herbs": 4,
+    "holyWaters": 1,
+    "bandages": 6,
+    "antivenoms": 0,
+    "keys": 3
+   }
+  }
+ },
+ "tips": {
+  "ruins": {
+   "effective": [
+    {
+     "label": "Blight",
+     "details": "low resist"
+    },
+    {
+     "label": "Crusader",
+     "details": "extra DMG vs. Unholy"
+    },
+    {
+     "label": "Direct damage",
+     "details": "Few high PROT enemies"
+    }
+   ],
+   "ineffective": [
+    {
+     "label": "Bleeds",
+     "details": "high resist"
+    }
+   ],
+   "dangers": [
+    {
+     "label": "Bone spearman",
+     "details": "at low ranks"
+    },
+    {
+     "label": "Stress dealers",
+     "details": "Bone Courtier, Cultist Acolyte and Madman"
+    },
+    {
+     "label": "Books and bookshelves",
+     "details": "High risk of bad outcome"
+    }
+   ]
+  },
+  "warrens": {
+   "effective": [
+    {
+     "label": "Bleed",
+     "details": "low resist"
+    },
+    {
+     "label": "Houndmaster",
+     "details": "extra DMG vs. Beast"
+    },
+    {
+     "label": "Scouting",
+     "details": "Specific map layouts"
+    }
+   ],
+   "ineffective": [
+    {
+     "label": "Blight",
+     "details": "high resist"
+    }
+   ],
+   "dangers": [
+    {
+     "label": "Swinetaur",
+     "details": "especially in the back rows"
+    },
+    {
+     "label": "Swine chopper",
+     "details": "High bleed, hard to kill"
+    }
+   ]
+  },
+  "weald": {
+   "effective": [
+    {
+     "label": "Bandages",
+     "details": "Many curios + enemies inflicting bleeds"
+    },
+    {
+     "label": "Antivenom",
+     "details": "Many curios + enemies inflicting blights"
+    },
+    {
+     "label": "Shovels",
+     "details": "More walls"
+    },
+    {
+     "label": "Holy waters",
+     "details": "Curios affecting quirks and stress positively"
+    }
+   ],
+   "ineffective": [],
+   "dangers": [
+    {
+     "label": "Crone",
+     "details": "in the front rows"
+    },
+    {
+     "label": "Ectoplasm",
+     "details": "can summon others"
+    },
+    {
+     "label": "Rabid Gnasher",
+     "details": "Fast + deals bleeds and diseases"
+    }
+   ]
+  },
+  "cove": {
+   "effective": [
+    {
+     "label": "Medicinal herbs",
+     "details": "Curio, traps, debuff interactions"
+    },
+    {
+     "label": "Shovels",
+     "details": "Curio interactions"
+    },
+    {
+     "label": "Bandages",
+     "details": "Many bleed dealing enemies"
+    },
+    {
+     "label": "Blight",
+     "details": "Low blight resistance + high PROT"
+    },
+    {
+     "label": "Prot debuff",
+     "details": "Ennemies with high PROT"
+    },
+    {
+     "label": "Occultist",
+     "details": "Ennemies mostly Eldritch"
+    }
+   ],
+   "ineffective": [
+    {
+     "label": "Bleed",
+     "details": "High bleed resistance"
+    }
+   ],
+   "dangers": [
+    {
+     "label": "Pelagic Groupers",
+     "details": "Deals lot of damages"
+    },
+    {
+     "label": "Thrall",
+     "details": "Explodes and deals a lot of damages if left alive"
+    }
+   ]
+  }
+ }
+}
