@@ -10,7 +10,7 @@
   --bg-raised: #2a2621;
   --line: #3a342c;
   --text: #c4bdb0;
-  --muted: #8e877b;
+  --muted: #a09989;
   --gold: #c9b569;
   --gold-dim: #8f7f45;
   --good: #7fa35a;
@@ -501,7 +501,7 @@ img {
 .curio,
 .curio-head > div {
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 /* ---------- UX pass ---------- */
@@ -843,5 +843,200 @@ img {
   .mode-group .chip {
     min-height: 30px;
     padding: 2px 9px;
+  }
+}
+
+/* ---------- Picker v3: labels above options, 2-row tiles on phones, slim sticky bar ---------- */
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.torch-group legend,
+.region-group legend,
+.mode-group legend {
+  float: none;
+  position: static;
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  display: block;
+  line-height: 1.4;
+  margin: 0 0 4px;
+  padding: 0;
+  font-family: var(--display);
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+.mode-group {
+  display: block;
+}
+.length-group .torch-options {
+  display: flex;
+  gap: 4px;
+}
+.minibar {
+  display: none;
+}
+
+/* Logo: dark lettering on a dark page. A thin gold edge + soft glow keeps it legible. */
+.logo {
+  filter: drop-shadow(0 0 0.6px rgb(201 181 105 / 0.9)) drop-shadow(0 0 0.6px rgb(201 181 105 / 0.9))
+    drop-shadow(0 0 10px rgb(201 181 105 / 0.25));
+}
+
+@media (min-width: 1000px) {
+  .side {
+    top: 150px;
+  }
+  [id$='-title'],
+  .curio {
+    scroll-margin-top: 150px;
+  }
+}
+
+@media (max-width: 719px) {
+  .picker {
+    position: static;
+    display: grid;
+    justify-content: stretch;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .region-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: row;
+    gap: 6px;
+  }
+  .region-tile {
+    padding: 6px 4px 4px;
+    font-size: 0.85rem;
+  }
+  .region-art {
+    height: 52px;
+    max-width: 88px;
+  }
+  .torch-group legend,
+  .region-group legend,
+  .mode-group legend {
+    font-size: 1rem;
+  }
+  .length-group .torch-options {
+    display: flex;
+    gap: 18px;
+  }
+  .length-group .torch {
+    flex-direction: row;
+    gap: 6px;
+    font-size: 0.9rem;
+  }
+  .length-group .torch-icon {
+    width: 26px;
+    height: 30px;
+    background-size: 52px auto;
+    background-position: -26px -5px;
+  }
+  .length-group .torch input:checked + .torch-icon {
+    background-position: 0 -5px;
+  }
+  .jump {
+    display: none !important;
+  }
+  .minibar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin: 0 -16px 12px;
+    padding: 10px 16px;
+    background: rgb(21 19 17 / 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+  }
+  .minibar a {
+    text-decoration: none;
+  }
+  .minibar-current {
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: capitalize;
+    min-height: 32px;
+    align-items: center;
+  }
+  .minibar-change {
+    margin-left: 6px;
+    font-weight: normal;
+    color: var(--muted);
+    text-transform: none;
+  }
+  .minibar-links {
+    display: flex;
+    gap: 12px;
+  }
+  .minibar-links a {
+    color: var(--text);
+    padding: 6px 0;
+  }
+  [id$='-title'],
+  .curio,
+  #picker {
+    scroll-margin-top: 60px;
+  }
+}
+
+@media (max-width: 719px) {
+  .minibar {
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
+  .minibar-current {
+    gap: 3px;
+  }
+  .minibar-change {
+    margin-left: 2px;
+  }
+  .minibar-links {
+    gap: 10px;
+  }
+  /* Options: item on its own line, outcomes get the full width. */
+  .option {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .activator {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .activator img {
+    width: 12px;
+    height: 24px;
+  }
+  .option[data-activator='nothing'] .activator img {
+    width: 18px;
+    height: 18px;
+    margin: 3px 0;
+  }
+  .activator-label {
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+}
+@media (max-width: 359px) {
+  .minibar-links a:first-child {
+    display: none;
+  }
+  .minibar-change {
+    display: none;
   }
 }

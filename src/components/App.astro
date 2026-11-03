@@ -40,7 +40,7 @@ const visibility = [
   ),
   ...LENGTHS.map((l) => `.app:has(#length-${l}:checked) [data-length]:not([data-length~="${l}"]){display:none}`),
   // Areas without short/medium/long: swap the length picker for a note.
-  ...REGIONS.filter((r) => !r.lengths.length).map((r) => `.app:has(#region-${r.id}:checked) .length-group{display:none}`),
+  ...REGIONS.filter((r) => !r.lengths.length).map((r) => `.app:has(#region-${r.id}:checked) :is(.length-group,.minibar-length){display:none}`),
   // DLC quests/modes: one radio group per region, each block shown only when its radio is checked.
   ...DLC_LOADOUTS.map((m) => `.app:has(#mode-${m.region}-${m.id}:not(:checked)) [data-mode="${m.region}:${m.id}"]{display:none}`),
 ].join('\n');
@@ -86,7 +86,7 @@ const tipCategories = [
     </p>
   </header>
 
-  <form class="picker" aria-label="Expedition" onsubmit="return false">
+  <form class="picker" id="picker" aria-label="Expedition" onsubmit="return false">
     <fieldset class="torch-group region-group">
       <legend>Region</legend>
       <div class="region-options">
@@ -142,12 +142,20 @@ const tipCategories = [
         );
       })
     }
-    <nav class="jump" aria-label="Sections">
+  </form>
+  <!-- Phones: the full picker scrolls away; this slim bar stays. Labels are filtered by the same :has() rules. -->
+  <nav class="minibar" aria-label="Current expedition and sections">
+    <a href="#picker" class="minibar-current">
+      {REGIONS.map((r) => <span data-region={r.id}>{r.label}</span>)}
+      {LENGTHS.map((l) => <span data-length={l} class="minibar-length">· {l}</span>)}
+      <span class="minibar-change">Change ↑</span>
+    </a>
+    <span class="minibar-links">
       <a href="#provisions-title">Provisions</a>
       <a href="#curios-title">Curios</a>
       <a href="#tips-title">Tips</a>
-    </nav>
-  </form>
+    </span>
+  </nav>
   <script is:inline set:html={bootScript} />
 
   <div class="layout">
