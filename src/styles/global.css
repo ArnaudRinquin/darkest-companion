@@ -1351,3 +1351,6 @@ img {
 .basis {
   margin: 6px 0 0;
 }
+.basis-tag {
+  color: var(--muted);
+}
