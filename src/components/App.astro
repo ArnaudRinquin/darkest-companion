@@ -130,11 +130,12 @@ const tipCategories = [
         return (
           <fieldset class="mode-group" data-region={r.id}>
             <legend>{r.id === 'farmstead' ? 'Mode' : 'Quest'}</legend>
-            <div class="chips-row">
+            <div class="torch-options">
               {modes.map((m, i) => (
-                <label class="chip" title={m.label}>
+                <label class="torch" title={m.label}>
                   <input type="radio" name={`mode-${r.id}`} id={`mode-${r.id}-${m.id}`} value={m.id} checked={i === 0} />
-                  <span>{m.short}</span>
+                  <span class="torch-icon" aria-hidden="true" />
+                  <span class="torch-label">{m.short}</span>
                 </label>
               ))}
             </div>
@@ -148,7 +149,7 @@ const tipCategories = [
     <a href="#picker" class="minibar-current">
       {REGIONS.map((r) => <span data-region={r.id}>{r.label}</span>)}
       {LENGTHS.map((l) => <span data-length={l} class="minibar-length">· {l}</span>)}
-      <span class="minibar-change">Change ↑</span>
+      <span class="minibar-change">change</span>
     </a>
     <span class="minibar-links">
       <a href="#provisions-title">Provisions</a>

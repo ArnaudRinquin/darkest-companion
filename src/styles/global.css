@@ -1081,3 +1081,95 @@ img {
     padding: 0 9px;
   }
 }
+
+/* ---------- Torch pickers v2 (length + quest/mode): one style, more readable ---------- */
+.length-group .torch-options,
+.mode-group .torch-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  overflow: visible;
+}
+.length-group .torch,
+.mode-group .torch {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 2px 4px 2px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.length-group .torch-icon,
+.mode-group .torch-icon {
+  position: relative;
+  width: 26px;
+  height: 30px;
+  background-size: 52px auto;
+  background-position: -26px -5px;
+  /* unlit torch: lift it off the dark background */
+  filter: brightness(1.9) contrast(1.1);
+}
+.length-group .torch input:checked + .torch-icon,
+.mode-group .torch input:checked + .torch-icon {
+  background-position: 0 -5px;
+  filter: drop-shadow(0 0 6px rgb(255 140 40 / 0.65));
+}
+.length-group .torch input:checked ~ .torch-label,
+.mode-group .torch input:checked ~ .torch-label {
+  color: var(--gold);
+  font-weight: 600;
+}
+.length-group .torch:hover .torch-label,
+.mode-group .torch:hover .torch-label {
+  color: var(--gold);
+}
+
+/* Section links: plain text links, not buttons. */
+@media (max-width: 719px) {
+  .minibar-links {
+    gap: 14px;
+  }
+  .minibar-links a {
+    display: inline;
+    min-height: 0;
+    padding: 6px 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-color: var(--gold-dim);
+    text-underline-offset: 3px;
+  }
+  .minibar-links a:active {
+    background: none;
+    color: #fff;
+  }
+}
+/* Unlit torch sprite is near-black: render it as a muted bronze silhouette instead. */
+.length-group .torch-icon,
+.mode-group .torch-icon {
+  width: 30px;
+  height: 34px;
+  background-size: 60px auto;
+  background-position: -30px -6px;
+  filter: invert(0.5) sepia(0.8) saturate(0.9) brightness(0.8);
+  opacity: 0.7;
+}
+.length-group .torch input:checked + .torch-icon,
+.mode-group .torch input:checked + .torch-icon {
+  background-position: 0 -6px;
+  filter: drop-shadow(0 0 7px rgb(255 140 40 / 0.7));
+  opacity: 1;
+}
+.length-group .torch:hover input:not(:checked) + .torch-icon,
+.mode-group .torch:hover input:not(:checked) + .torch-icon {
+  opacity: 1;
+}
+
+/* "I have" chips wrap instead of scrolling sideways. */
+.item-chips .chips-row {
+  flex-wrap: wrap;
+  overflow: visible;
+}
