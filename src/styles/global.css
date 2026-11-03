@@ -1072,7 +1072,7 @@ img {
     display: none;
   }
   .minibar-current::after {
-    content: '▾';
+    content: '↑';
     margin-left: 2px;
     color: var(--muted);
     font-weight: normal;
