@@ -1175,3 +1175,15 @@ img {
   flex-wrap: wrap;
   overflow: visible;
 }
+
+/* Hover: keep the bronze silhouette, just a bit brighter (overrides the old generic .torch:hover). */
+.length-group .torch:hover input:not(:checked) + .torch-icon,
+.mode-group .torch:hover input:not(:checked) + .torch-icon {
+  filter: invert(0.6) sepia(0.8) saturate(1) brightness(0.95);
+  opacity: 1;
+}
+.length-group .torch:hover input:checked + .torch-icon,
+.mode-group .torch:hover input:checked + .torch-icon {
+  filter: drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95)) drop-shadow(0 0 0.6px rgb(201 181 105 / 0.95))
+    drop-shadow(0 0 7px rgb(255 140 40 / 0.6));
+}
