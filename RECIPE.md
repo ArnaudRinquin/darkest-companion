@@ -43,6 +43,10 @@ Pages: `/` (default Ruins) and `/<region>/` (same app with the region pinned, it
 - `src/data/types.ts`: `Curio`, `CurioOption`, `Outcome`, `Region`, ids. Every curio can carry `sources[]` and `unsure`, and `unsure` shows in the UI.
 - `src/data/curios.generated.ts`: v1 data, generated once by `scripts/port-legacy.mjs` from `test/fixtures/legacy.json` (a JSON dump of the old JS modules). Don't edit it. Corrections go in `fixes` in `src/data/curios.ts`, each with a source.
 - `src/data/curios.ts`: legacy + `fixes` + DLC/special curios.
+- `src/data/loadouts.dlc.ts`, `src/data/tips.dlc.ts`: Courtyard quest / Farmstead mode loadouts (`basis: 'community' | 'estimate'`) and tips, generated from `data/dlc-loadouts-research.json`.
+- `src/components/Inventory.astro`: in-game style inventory grid + total cost.
+- `src/scripts/filter.ts`: curio search + "I have <item>" chips (sets `hidden`; region switching stays CSS).
+- `src/lib/tone.ts`: good/bad/neutral outcome classifier, used for the bar color + ▲/▼ glyph.
 - `src/data/provisions.ts`: shop items (cost, stack size), `LOADOUTS[region][length]`, `stacks()` (inventory slot split), `provisionIcon()` (food sprite changes with quantity).
 - `src/scripts/state.ts`: `pickState` (pure, unit-tested) + `boot`. Both must stay self-contained because they are inlined with `toString()`.
 - `src/layouts/Base.astro`: SEO head (canonical, OG/Twitter, JSON-LD `WebApplication`, favicon, font preload).
@@ -76,6 +80,10 @@ Pages: `/` (default Ruins) and `/<region>/` (same app with the region pinned, it
 - **TypeScript 7** breaks `astro check`. It's pinned to 6.
 - **v1 data quirks kept on purpose.** "Stack of books" exists in both Ruins and Warrens, and some odds don't add up to 100%. Each one is either fixed in `fixes` with a source or flagged `unsure`.
 - **GitHub Pages migration.** v1 published by force-pushing build output to `gh-pages` (legacy Pages). v2 uses `actions/deploy-pages`, so the `gh-pages` branch can stay as a rollback until v2 is live.
+- **Areas without lengths.** DLC areas get one radio group per region (`name="mode-courtyard"`, …), so each keeps its own default, and one `:has(#mode-…:not(:checked))` rule per mode. A single shared group would leave the Farmstead blank after picking a Courtyard quest.
+- **Sources disagree or are missing.** Show the numbers anyway, but label them (Community vs Estimate) and put the reasoning one tap away. A blank panel helps nobody mid-run.
+- **Wiki sprites for Courtyard curios** are before/after composites with a red divider. They're auto-cropped to the left (unused) state by finding the divider column. Without that, OG cards and cards on the site show two curios.
+- **Region tiles** reuse a signature curio sprite per region, desaturated until selected. That's cheaper than commissioning art, and it still reads as the game.
 - **Fonts.** `DwarvenAxe` (MyFonts webfont from v1) is woff2/woff only now. eot/ttf were dropped.
 
 ## 6. Ways to adapt it

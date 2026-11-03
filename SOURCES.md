@@ -52,8 +52,25 @@ Eldritch Altar (odds added up to 115%), Bookshelf (stress +15, not +50), Confess
 
 The spreadsheet also lists class-specific extras (Houndmaster: 2 dog treats, Plague Doctor: 1 antivenom, Grave Robber: 1 shovel, Arbalest: 1 bandage, Crusader: 1 holy water, Leper/Jester: 1 herb). Not shown yet.
 
-The wiki gives **no quantities** for the DLC areas, and neither area uses short/medium/long. The site shows the wiki's guidance instead of a loadout.
+### DLC loadouts (Courtyard quests, Farmstead modes)
+
+Neither area uses short/medium/long, so the site offers a quest/mode picker instead. No source gives counts per quest. Each loadout is labelled on the site, with a "Why these numbers?" panel listing its sources:
+
+| Quest / mode | Basis | Main sources |
+|---|---|---|
+| Burn the Hives, Gather the Blood, Garden Guardian | **Estimate**: short baseline, no firewood, one stack of torches, 6 Blood | wiki Courtyard + Provisions, ludo.guide (quest lengths) |
+| Baron, Viscount, Countess (epic) | **Community**: [gamepressure](https://www.gamepressure.com/darkestdungeon/recommended-provisions/z09dc0) area-wide list + [ludo.guide](https://www.ludo.guide/guide/darkest-dungeon/courtyard) "three sets" of Blood; torches/firewood/keys filled in from wiki rules | |
+| Apprentice, Veteran | **Estimate**: no torches/shovels/firewood, food for one camp, keys for the Stockpile | wiki Farmstead, Steam discussion, gamepressure |
+| Endless Harvest | **Community**: [gamepressure](https://www.gamepressure.com/darkestdungeon/recommended-consumables/zcb0fd), 2 stacks each of herbs/holy water/bandages/antivenom, 16–24 food | |
+
+Disagreements kept visible: gamepressure says "as many torches as you can carry", the wiki says one stack is enough (we use one stack). Viscount holy water: ludo.guide "a set" (6) vs gamepressure 1–2 (we use 6). Raw research: [`data/dlc-loadouts-research.json`](data/dlc-loadouts-research.json).
+
+The Blood can't be bought (cost shown as 0): it comes from loot, or 2/week from the Sanguine Vintners district.
 
 ## Tips
 
-Region tips are from v1 (community-written). There are no tips yet for the Courtyard and Farmstead.
+Base-region tips are from v1 (community-written). Courtyard and Farmstead tips come from the wiki and gamepressure, and each links its source (↗).
+
+## Outcome colors
+
+Green ▲ / red ▼ on each outcome comes from a keyword classifier (`src/lib/tone.ts`), not game data. Anything it can't classify stays neutral.
