@@ -21,7 +21,7 @@ Eldritch Altar (odds added up to 115%), Bookshelf (stress +15, not +50), Confess
 
 ### Known gaps / unverified
 
-- **Journal Entry outcomes**: the wiki lists a Journal Entry outcome on book curios (Stack of Books, Bookshelf, Pile of Scrolls…). v1 leaves it out and scales the other odds to 100%. Kept that way for now.
+- **Journal entry outcomes**: book curios (Stack of Books, Bookshelf, Pile of Scrolls) now show the wiki's exact odds, including the Journal entry outcome (a lore page, no gameplay effect) that v1 left out.
 - **Heirloom Chest**: the wiki describes two variants with different loot. v1 merged them. Flagged on the site.
 - **Decorative Urn**: v1 odds add up to 98%. Not checked yet.
 - **Hooded Shrew**: the wiki's by-hand odds add up to 93.1%, so one outcome is probably missing on the wiki.

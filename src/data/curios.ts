@@ -35,19 +35,43 @@ const fixes: Record<string, Fix> = {
       { chance: 50, label: 'Nothing' },
     ]),
   ),
-  'ruins-bookshelf': pipe(relabel({ 'Stress +50': 'Stress +15', 'Gain a negative quirk or disease': 'Gain random negative quirk' })),
+  // Book curios: wiki odds including the Journal entry outcome (lore page, no gameplay effect),
+  // which v1 left out and rescaled around. Module:Curios/Data, Nov 2026.
+  'ruins-bookshelf': pipe(
+    set('nothing', [
+      { chance: 20, label: 'Scouting' },
+      { chance: 20, label: 'Stress +15' },
+      { chance: 13.3, label: 'Gain random positive quirk' },
+      { chance: 6.7, label: 'Gain random negative quirk' },
+      { chance: 20, label: 'Journal entry' },
+      { chance: 20, label: 'Nothing' },
+    ]),
+  ),
+  'warrens-pile-of-scrolls': pipe(
+    set('nothing', [
+      { chance: 28.6, label: 'Scouting' },
+      { chance: 14.3, label: 'Stress +15' },
+      { chance: 9.5, label: 'Gain random positive quirk' },
+      { chance: 4.8, label: 'Gain random negative quirk' },
+      { chance: 14.3, label: 'Journal entry' },
+      { chance: 28.6, label: 'Nothing' },
+    ]),
+  ),
   'ruins-confession-booth': pipe(relabel({ 'Stress +20': 'Stress +15' })),
   'ruins-suit-of-armor': pipe(relabel({ 'Buff 10 DODGE, 10% PROT until camp': 'Buff 10 DODGE, 15% PROT until camp' })),
   // v1 had two copies (Ruins + Warrens); it's one curio found in every base region.
   'ruins-stack-of-books': null,
-  'warrens-stack-of-books': (c) => ({
-    ...c,
-    id: 'stack-of-books',
-    region: 'shared',
-    unsure:
-      'The wiki also lists a 16.7% Journal Entry outcome; these odds leave it out and are scaled to 100%.',
-    sources: [WIKI],
-  }),
+  'warrens-stack-of-books': (c) =>
+    pipe(
+      set('nothing', [
+        { chance: 22.2, label: 'Gain random positive quirk' },
+        { chance: 22.2, label: 'Stress +25' },
+        { chance: 11.1, label: 'Gain random negative quirk' },
+        { chance: 11.1, label: 'Decrease light by 25' },
+        { chance: 16.7, label: 'Journal entry' },
+        { chance: 16.7, label: 'Nothing' },
+      ]),
+    )({ ...c, id: 'stack-of-books', region: 'shared' }),
   'weald-ancient-coffin': (c) =>
     pipe(
       set('nothing', [
