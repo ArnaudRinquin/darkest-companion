@@ -35,7 +35,8 @@ const visibleTitles = (page) =>
   await page.click('label:has(#region-warrens)');
   await page.click('label:has(#length-long)');
   const v2 = await page.evaluate(() => localStorage.getItem('darkest-companion:v2'));
-  check('v2 saved', v2 === '{"region":"warrens","length":"long"}', v2);
+  const v2o = JSON.parse(v2 || '{}');
+  check('v2 saved', v2o.region === 'warrens' && v2o.length === 'long', v2);
   check('v1 untouched', (await page.evaluate(() => localStorage.getItem('reduxPersist:mission'))).includes('cove'));
   check('hash updated', page.url().endsWith('#warrens/long'), page.url());
   await page.goto(url);
@@ -58,6 +59,30 @@ const visibleTitles = (page) =>
   check('item filter keeps only shovel curios', shovel.length > 0 && (await page.$$eval('.curio', (cs) => cs.filter((c) => c.offsetParent).every((c) => c.dataset.items.split(' ').includes('shovel')))), JSON.stringify(shovel));
   await page.fill('#curio-search', 'zzz');
   check('no-match message', await page.isVisible('.no-match'));
+  await ctx.close();
+}
+
+// 2d. DLC quest/mode in the URL + remembered
+{
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  const page = await ctx.newPage();
+  await page.goto(url + '#courtyard');
+  await page.click('label:has(#mode-courtyard-epic-viscount)');
+  check('quest in hash', page.url().endsWith('#courtyard/epic-viscount'), page.url());
+  const visibleLoadout = () =>
+    page.$$eval('.loadout[data-mode]', (ls) => ls.filter((l) => l.offsetParent).map((l) => l.dataset.mode));
+  check('quest loadout shown', JSON.stringify(await visibleLoadout()) === '["courtyard:epic-viscount"]', JSON.stringify(await visibleLoadout()));
+  await page.click('label:has(#region-weald)');
+  check('base region hash uses length', /#weald\/(short|medium|long)$/.test(page.url()), page.url());
+  await page.goto(url);
+  await page.click('label:has(#region-courtyard)');
+  check('quest remembered', await page.isChecked('#mode-courtyard-epic-viscount'));
+  await page.goto(url + '#farmstead/veteran');
+  await page.reload();
+  check('mode from link', (await page.isChecked('#region-farmstead')) && (await page.isChecked('#mode-farmstead-veteran')));
+  await page.evaluate(() => (location.hash = '#courtyard/epic-baron'));
+  await page.waitForTimeout(50);
+  check('hashchange applies', (await page.isChecked('#region-courtyard')) && (await page.isChecked('#mode-courtyard-epic-baron')));
   await ctx.close();
 }
 

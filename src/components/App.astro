@@ -28,6 +28,9 @@ const cfg: Config = {
   legacyKey: 'reduxPersist:mission',
   regions: REGIONS.map((r) => r.id),
   lengths: LENGTHS,
+  modes: Object.fromEntries(
+    REGIONS.filter((r) => !r.lengths.length).map((r) => [r.id, DLC_LOADOUTS.filter((m) => m.region === r.id).map((m) => m.id)]),
+  ),
   fallback: { region: initialRegion, length: DEFAULT_LENGTH },
   ...(pinnedRegion && { pinnedRegion }),
 };
