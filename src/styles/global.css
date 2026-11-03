@@ -1040,3 +1040,44 @@ img {
     display: none;
   }
 }
+
+/* Section links in the phone bar: look tappable (pills, like the item chips). */
+@media (max-width: 719px) {
+  .minibar-links {
+    gap: 6px;
+  }
+  .minibar-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 999px;
+    color: var(--gold);
+    background: rgb(201 181 105 / 0.08);
+  }
+  .minibar-links a:active {
+    background: rgb(201 181 105 / 0.2);
+  }
+  .minibar-current {
+    padding: 0 10px 0 0;
+  }
+  .minibar-change {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+@media (max-width: 439px) {
+  .minibar-change {
+    display: none;
+  }
+  .minibar-current::after {
+    content: '▾';
+    margin-left: 2px;
+    color: var(--muted);
+    font-weight: normal;
+  }
+  .minibar-links a {
+    padding: 0 9px;
+  }
+}
