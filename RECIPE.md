@@ -33,7 +33,8 @@ generated <style>:  .app:has(#region-weald:checked) [data-region]:not([data-regi
       │             → switching regions/lengths is pure CSS, no JS needed
       ▼
 inline <script> right after the radios (~1 KB, from src/scripts/state.ts via fn.toString()):
-      hash (#weald/long) > localStorage v2 > v1 redux-persist key > defaults
+      hash (#weald/long, #courtyard/epic-viscount) > localStorage v2 > v1 redux-persist key > defaults
+      (v2 = {region, length, modes:{courtyard, farmstead}}; hashchange re-applies)
       → sets the checked radios before first paint; on change: save + history.replaceState
 ```
 
@@ -74,6 +75,9 @@ Pages: `/` (default Ruins) and `/<region>/` (same app with the region pinned, it
 - **Why Astro and no island.** The only state is two strings. Rendering everything up front and toggling with CSS `:has()` keeps the page at ~11 KB gzipped with ~1 KB of JS. A React island would cost more than the whole page.
 - **Flash of the default region.** A deferred module script would show Ruins and then jump to the saved region. The boot script is inline and synchronous, placed right after the radios.
 - **`fn.toString()` inlining.** It works because Astro's frontmatter runs compiled JS, so types are already stripped. Any import or module-level reference inside those functions breaks at runtime only. The `is self-contained` test guards against it.
+- **Hash second segment is length for base regions, quest/mode for DLC areas.** Each DLC area remembers its own pick.
+- **Phones: the picker scrolls away; a slim sticky bar** shows the current pick (filtered by the same `:has()` rules, no JS) with links back to the picker and to each section.
+- **No layout shift on region switch:** Length / Quest / Mode share one grid cell sized for the tallest case (Courtyard's 6 quests), checked by the smoke test at 3 widths.
 - **The hash beats storage, and a region page beats storage.** Shared links (`/weald/#weald/long`) must open what was shared, not the visitor's last pick.
 - **Hard-coded base in CSS.** `url('/darkest-companion/…')` in `global.css`: Astro doesn't rewrite `url()` in plain CSS, and relative URLs differ between `/` and `/weald/`. If you fork, change `base` and these URLs together.
 - **`robots.txt` doesn't work on a project site** (crawlers only read the domain root). Submit `sitemap.xml` in Search Console instead.
